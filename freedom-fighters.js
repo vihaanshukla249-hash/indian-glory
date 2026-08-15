@@ -1,12 +1,12 @@
 /* =========================================================
    INDIAN GLORY — FREEDOM FIGHTERS
-   Premium Interactive Historical Archive
+   Interactive Historical Archive
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       FREEDOM FIGHTER DATABASE
+       FIGHTER DATABASE
     ===================================================== */
 
     const fighters = [
@@ -18,18 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
             categoryLabel: "Warrior Queen",
             dates: "1828 — 1858",
             born: "Varanasi, Uttar Pradesh",
-            region: "Jhansi",
+            region: "Jhansi, Uttar Pradesh",
             knownFor: "Revolt of 1857",
-            wikipedia: "Rani Lakshmibai",
             image: "images/fighters/rani-lakshmibai.jpg",
 
             biography:
-                "Rani Lakshmibai, the queen of Jhansi, became one of the most enduring symbols of resistance during the uprising of 1857. After the British attempted to annex Jhansi, she became a central figure in the resistance. Her leadership, determination and military courage made her one of the most remembered figures of India's nineteenth-century history.",
+                "Rani Lakshmibai, the queen of Jhansi, became one of the most enduring symbols of resistance during the uprising of 1857. She opposed the British annexation of Jhansi and played a major military role during the uprising.",
 
             contributions: [
                 "Led the defence of Jhansi during the uprising of 1857.",
-                "Organised resistance forces and military preparations.",
-                "Worked with other leaders of the 1857 uprising.",
+                "Organised resistance forces in Jhansi.",
+                "Worked alongside other leaders of the uprising.",
                 "Became an enduring symbol of courage and resistance."
             ]
         },
@@ -41,19 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
             categoryLabel: "Revolutionary",
             dates: "1827 — 1857",
             born: "Nagwa, Uttar Pradesh",
-            region: "Barrackpore",
-            knownFor: "Events preceding the Revolt of 1857",
-            wikipedia: "Mangal Pandey",
+            region: "Bengal Army",
+            knownFor: "Early events of the 1857 uprising",
             image: "images/fighters/mangal-pandey.jpg",
 
             biography:
-                "Mangal Pandey was a soldier in the Bengal Army whose actions at Barrackpore in March 1857 became closely associated with the events that preceded the wider uprising of 1857. His name later became a powerful symbol of resistance among Indians.",
+                "Mangal Pandey was a soldier in the Bengal Army whose actions at Barrackpore in 1857 became associated with the opening events of the uprising against British rule.",
 
             contributions: [
-                "Served in the Bengal Army.",
                 "Resisted policies affecting Indian soldiers.",
-                "Became associated with the early events of the 1857 uprising.",
-                "Became an important symbol of anti-colonial resistance."
+                "Became associated with the opening events of the 1857 uprising.",
+                "Became an important symbol of resistance."
             ]
         },
 
@@ -66,17 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Yeola, Maharashtra",
             region: "Central India",
             knownFor: "Military resistance of 1857",
-            wikipedia: "Tatya Tope",
             image: "images/fighters/tatya-tope.jpg",
 
             biography:
-                "Tatya Tope was one of the most prominent military leaders of the uprising of 1857. He continued resistance even after several major centres of the rebellion had been suppressed and became known for his mobile military campaigns.",
+                "Tatya Tope was one of the prominent military leaders of the uprising of 1857. He continued resistance after several major centres of the uprising had been suppressed.",
 
             contributions: [
                 "Commanded forces during the uprising of 1857.",
                 "Worked with Nana Sahib and Rani Lakshmibai.",
-                "Continued resistance after major rebel centres fell.",
-                "Used mobile military strategies against British forces."
+                "Continued resistance through mobile military campaigns."
             ]
         },
 
@@ -89,17 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Delhi",
             region: "Delhi",
             knownFor: "Symbolic leadership during 1857",
-            wikipedia: "Bahadur Shah II",
             image: "images/fighters/bahadur-shah-zafar.jpg",
 
             biography:
-                "Bahadur Shah Zafar was the last Mughal emperor. During the uprising of 1857, rebels in Delhi recognised him as their symbolic leader. His association with the uprising represented a final moment of Mughal political authority in India.",
+                "Bahadur Shah Zafar was the last Mughal emperor. During the uprising of 1857, rebels in Delhi recognised him as their symbolic leader. His association with the uprising marked the final chapter of Mughal political authority in India.",
 
             contributions: [
                 "Served as a symbolic figurehead during the uprising.",
                 "Provided political legitimacy to rebel forces in Delhi.",
-                "Became associated with the final phase of Mughal rule.",
-                "Was exiled to Rangoon after the uprising."
+                "Became an important figure associated with the 1857 uprising."
             ]
         },
 
@@ -112,17 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Jagdishpur, Bihar",
             region: "Bihar",
             knownFor: "Uprising of 1857",
-            wikipedia: "Kunwar Singh",
             image: "images/fighters/kunwar-singh.jpg",
 
             biography:
-                "Kunwar Singh was a zamindar and military leader from Bihar who played an important role in the uprising of 1857. Despite being in his seventies, he led resistance forces and became one of the most important rebel leaders in eastern India.",
+                "Kunwar Singh was a zamindar and military leader from Bihar who played an important role in the uprising of 1857. Despite his advanced age, he led resistance forces in the region.",
 
             contributions: [
                 "Led resistance forces in Bihar.",
                 "Organised military campaigns against British forces.",
-                "Maintained resistance despite his advanced age.",
-                "Became a major regional symbol of the 1857 uprising."
+                "Became a prominent regional symbol of resistance."
             ]
         },
 
@@ -135,17 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Awadh",
             region: "Lucknow",
             knownFor: "Resistance in Awadh",
-            wikipedia: "Begum Hazrat Mahal",
             image: "images/fighters/begum-hazrat-mahal.jpg",
 
             biography:
-                "Begum Hazrat Mahal played a leading role in the resistance in Awadh during the uprising of 1857. Following the annexation of Awadh, she helped organise resistance against British rule and became one of the most prominent women leaders of the uprising.",
+                "Begum Hazrat Mahal played a leading role in the resistance in Awadh during the uprising of 1857. She opposed the British annexation of Awadh and helped organise resistance in the region.",
 
             contributions: [
                 "Helped organise resistance in Awadh.",
                 "Opposed the annexation of Awadh.",
-                "Provided political leadership during the uprising.",
-                "Became an important symbol of women's resistance."
+                "Provided political leadership during the uprising."
             ]
         },
 
@@ -153,22 +142,21 @@ document.addEventListener("DOMContentLoaded", () => {
             id: "dadabhai-naoroji",
             name: "Dadabhai Naoroji",
             category: "leader",
-            categoryLabel: "Nationalist Thinker",
+            categoryLabel: "Nationalist",
             dates: "1825 — 1917",
             born: "Bombay",
             region: "Maharashtra",
             knownFor: "Drain of Wealth theory",
-            wikipedia: "Dadabhai Naoroji",
             image: "images/fighters/dadabhai-naoroji.jpg",
 
             biography:
-                "Dadabhai Naoroji was a pioneering Indian nationalist, scholar and political thinker. Through his economic analysis of British rule, he argued that India's wealth was being drained to Britain. His ideas helped strengthen the intellectual case for Indian self-government.",
+                "Dadabhai Naoroji was a pioneering Indian nationalist, scholar and political thinker. His economic analysis of British rule helped establish arguments for Indian self-government.",
 
             contributions: [
-                "Helped establish the Indian National Congress.",
+                "Co-founded the Indian National Congress.",
                 "Developed the Drain of Wealth theory.",
-                "Advocated Indian self-government.",
-                "Became the first British Indian MP."
+                "Was elected to the British House of Commons.",
+                "Advocated greater political representation for Indians."
             ]
         },
 
@@ -181,17 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Ratnagiri, Maharashtra",
             region: "Maharashtra",
             knownFor: "Assertive nationalism",
-            wikipedia: "Bal Gangadhar Tilak",
             image: "images/fighters/bal-gangadhar-tilak.jpg",
 
             biography:
-                "Bal Gangadhar Tilak was a nationalist leader, educator and journalist who helped transform Indian nationalism into a wider public movement. He strongly advocated self-rule and used newspapers and public festivals to encourage political awareness.",
+                "Bal Gangadhar Tilak was a major nationalist leader, educator and journalist. He advocated stronger political action against colonial rule and helped transform nationalism into a wider public movement.",
 
             contributions: [
-                "Popularised the demand for Swaraj.",
-                "Used journalism to spread nationalist ideas.",
-                "Helped build public political participation.",
-                "Was one of the leaders of the Lal-Bal-Pal group."
+                "Popularised the demand for self-rule.",
+                "Used journalism to promote nationalist ideas.",
+                "Promoted public political participation.",
+                "Played an important role in the Swadeshi era."
             ]
         },
 
@@ -203,18 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
             dates: "1866 — 1915",
             born: "Ratnagiri, Maharashtra",
             region: "Maharashtra",
-            knownFor: "Constitutional reform",
-            wikipedia: "Gopal Krishna Gokhale",
+            knownFor: "Moderate nationalism",
             image: "images/fighters/gopal-krishna-gokhale.jpg",
 
             biography:
-                "Gopal Krishna Gokhale was a major political leader and social reformer who advocated constitutional methods, education and gradual political reform. He founded the Servants of India Society and influenced a younger generation of nationalists.",
+                "Gopal Krishna Gokhale was a major political leader and social reformer who advocated constitutional methods, education and gradual political reform.",
 
             contributions: [
                 "Founded the Servants of India Society.",
-                "Advocated education and political reform.",
-                "Worked within constitutional politics.",
-                "Influenced Mahatma Gandhi."
+                "Advocated political and educational reform.",
+                "Participated in the Indian National Congress.",
+                "Influenced younger nationalists including Mahatma Gandhi."
             ]
         },
 
@@ -226,17 +212,16 @@ document.addEventListener("DOMContentLoaded", () => {
             dates: "1865 — 1928",
             born: "Dhudike, Punjab",
             region: "Punjab",
-            knownFor: "Anti-colonial movement",
-            wikipedia: "Lala Lajpat Rai",
+            knownFor: "Anti-colonial nationalism",
             image: "images/fighters/lala-lajpat-rai.jpg",
 
             biography:
-                "Lala Lajpat Rai was a prominent nationalist leader, writer and social reformer. He was one of the famous Lal-Bal-Pal trio and played a major role in nationalist politics, education and public mobilisation.",
+                "Lala Lajpat Rai was a prominent nationalist leader, writer and social reformer. He was one of the leaders popularly known as the Lal-Bal-Pal trio.",
 
             contributions: [
                 "Played a major role in nationalist politics.",
                 "Supported education and social reform.",
-                "Promoted Swadeshi and political awareness.",
+                "Promoted Indian self-government.",
                 "Led a protest against the Simon Commission."
             ]
         },
@@ -250,17 +235,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Sylhet",
             region: "Bengal",
             knownFor: "Swadeshi Movement",
-            wikipedia: "Bipin Chandra Pal",
             image: "images/fighters/bipin-chandra-pal.jpg",
 
             biography:
-                "Bipin Chandra Pal was a nationalist thinker, journalist and powerful public speaker. He became one of the leading advocates of Swadeshi following the partition of Bengal and formed the famous Lal-Bal-Pal trio.",
+                "Bipin Chandra Pal was a prominent nationalist thinker, journalist and speaker. He became one of the leading advocates of the Swadeshi movement.",
 
             contributions: [
-                "Promoted Swadeshi.",
-                "Supported national education.",
+                "Promoted Swadeshi and national education.",
                 "Worked as a journalist and political speaker.",
-                "Helped build assertive nationalist politics."
+                "Helped develop assertive nationalist politics."
             ]
         },
 
@@ -273,17 +256,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Porbandar, Gujarat",
             region: "India",
             knownFor: "Nonviolent mass movements",
-            wikipedia: "Mahatma Gandhi",
             image: "images/fighters/mahatma-gandhi.jpg",
 
             biography:
-                "Mahatma Gandhi became one of the central figures of India's independence movement. He promoted nonviolent resistance and mass participation through campaigns including Non-Cooperation, Civil Disobedience and Quit India.",
+                "Mahatma Gandhi became one of the central figures of India's independence movement. He promoted nonviolent resistance and mass participation through major campaigns including Non-Cooperation, Civil Disobedience and Quit India.",
 
             contributions: [
                 "Led major mass movements against colonial rule.",
                 "Promoted nonviolent civil resistance.",
-                "Led the Salt March.",
-                "Mobilised millions of Indians."
+                "Encouraged mass participation in the national movement.",
+                "Played a central role in India's independence struggle."
             ]
         },
 
@@ -296,17 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Hyderabad",
             region: "India",
             knownFor: "National movement & women's participation",
-            wikipedia: "Sarojini Naidu",
             image: "images/fighters/sarojini-naidu.jpg",
 
             biography:
-                "Sarojini Naidu was a poet, political leader and prominent participant in India's national movement. Known as the Nightingale of India, she advocated women's participation in public life and nationalist politics.",
+                "Sarojini Naidu was a poet, political leader and prominent participant in India's national movement. She advocated women's participation in public life and became an important Congress leader.",
 
             contributions: [
                 "Participated in major nationalist campaigns.",
                 "Advocated women's political participation.",
-                "Led civil disobedience activities.",
-                "Became the first Indian woman president of the Indian National Congress."
+                "Became the first Indian woman president of the Indian National Congress.",
+                "Participated in civil disobedience campaigns."
             ]
         },
 
@@ -318,18 +299,17 @@ document.addEventListener("DOMContentLoaded", () => {
             dates: "1889 — 1964",
             born: "Allahabad",
             region: "India",
-            knownFor: "Purna Swaraj",
-            wikipedia: "Jawaharlal Nehru",
+            knownFor: "Purna Swaraj & national movement",
             image: "images/fighters/jawaharlal-nehru.jpg",
 
             biography:
-                "Jawaharlal Nehru was a leading figure in India's independence movement and a close associate of Mahatma Gandhi. He spent many years in prison and strongly advocated complete independence for India.",
+                "Jawaharlal Nehru was a leading figure in India's independence movement and a close associate of Mahatma Gandhi. He spent years in prison during the struggle and advocated complete independence.",
 
             contributions: [
                 "Participated in major national movements.",
                 "Advocated Purna Swaraj.",
-                "Served as president of the Indian National Congress.",
-                "Spent years imprisoned during the freedom struggle."
+                "Served as a major leader of the Indian National Congress.",
+                "Spent several periods in prison during the freedom struggle."
             ]
         },
 
@@ -342,17 +322,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Nadiad, Gujarat",
             region: "Gujarat",
             knownFor: "Kheda & Bardoli movements",
-            wikipedia: "Vallabhbhai Patel",
             image: "images/fighters/sardar-patel.jpg",
 
             biography:
-                "Sardar Vallabhbhai Patel was an important nationalist leader and organiser. His leadership during Kheda and Bardoli established him as a major figure in the freedom movement.",
+                "Sardar Vallabhbhai Patel was an important nationalist leader and organiser. His leadership during movements in Gujarat, including Bardoli, established him as a major figure in India's freedom struggle.",
 
             contributions: [
-                "Supported the Kheda Satyagraha.",
+                "Played a major role in the Kheda Satyagraha.",
                 "Led the Bardoli Satyagraha.",
-                "Organised large political campaigns.",
-                "Became one of the major leaders of the Congress."
+                "Organised large-scale political campaigns.",
+                "Became an important leader of the Indian National Congress."
             ]
         },
 
@@ -365,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Cuttack, Odisha",
             region: "India",
             knownFor: "Indian National Army",
-            wikipedia: "Subhas Chandra Bose",
             image: "images/fighters/subhas-chandra-bose.jpg",
 
             biography:
@@ -373,9 +351,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             contributions: [
                 "Led the Indian National Army.",
-                "Formed the Provisional Government of Free India.",
-                "Organised resistance against British rule.",
-                "Inspired Indians with his call for independence."
+                "Established the Provisional Government of Free India.",
+                "Mobilised Indian soldiers and supporters abroad.",
+                "Inspired many Indians through his demand for independence."
             ]
         },
 
@@ -388,16 +366,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Banga, Punjab",
             region: "Punjab",
             knownFor: "Revolutionary movement",
-            wikipedia: "Bhagat Singh",
             image: "images/fighters/bhagat-singh.jpg",
 
             biography:
-                "Bhagat Singh was a revolutionary nationalist whose writings, political ideas and actions made him one of the most recognisable figures of India's independence movement. He became an enduring symbol of youthful courage and sacrifice.",
+                "Bhagat Singh was a revolutionary nationalist whose writings, political ideas and activities made him one of the most recognisable figures of India's independence movement. He became an enduring symbol of youthful courage and political commitment.",
 
             contributions: [
-                "Participated in revolutionary organisations.",
-                "Wrote extensively about political ideas.",
-                "Played a major role in the HSRA.",
+                "Participated in revolutionary political organisations.",
+                "Worked with the Hindustan Socialist Republican Association.",
+                "Used writing and public action to spread political ideas.",
                 "Inspired generations of young Indians."
             ]
         },
@@ -410,17 +387,16 @@ document.addEventListener("DOMContentLoaded", () => {
             dates: "1906 — 1931",
             born: "Bhavra, Madhya Pradesh",
             region: "North India",
-            knownFor: "HSRA",
-            wikipedia: "Chandra Shekhar Azad",
+            knownFor: "Hindustan Socialist Republican Association",
             image: "images/fighters/chandrashekhar-azad.jpg",
 
             biography:
-                "Chandrashekhar Azad was a prominent revolutionary who became a leading figure of the Hindustan Socialist Republican Association. He helped organise revolutionary activities and worked alongside Bhagat Singh and other young revolutionaries.",
+                "Chandrashekhar Azad was a prominent revolutionary who became a leading figure of the Hindustan Socialist Republican Association. He helped organise revolutionary activities against British rule.",
 
             contributions: [
                 "Helped organise revolutionary networks.",
-                "Worked with Bhagat Singh.",
-                "Helped develop the HSRA.",
+                "Worked with Bhagat Singh and other revolutionaries.",
+                "Played an organisational role in the HSRA.",
                 "Became a symbol of revolutionary resistance."
             ]
         },
@@ -434,17 +410,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Shahjahanpur, Uttar Pradesh",
             region: "United Provinces",
             knownFor: "Kakori action",
-            wikipedia: "Ram Prasad Bismil",
             image: "images/fighters/ram-prasad-bismil.jpg",
 
             biography:
-                "Ram Prasad Bismil was a revolutionary, poet and political activist. He was a leading figure of the Hindustan Republican Association and became associated with the Kakori train action.",
+                "Ram Prasad Bismil was a revolutionary, poet and political activist. He was one of the key figures associated with the Hindustan Republican Association and the Kakori action.",
 
             contributions: [
                 "Helped establish revolutionary organisations.",
                 "Played a leading role in the Kakori action.",
-                "Used poetry to inspire nationalist sentiment.",
-                "Worked for Indian independence."
+                "Used poetry and writing to inspire nationalist sentiment.",
+                "Worked to organise revolutionary resistance."
             ]
         },
 
@@ -457,17 +432,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Shahjahanpur, Uttar Pradesh",
             region: "United Provinces",
             knownFor: "Kakori action",
-            wikipedia: "Ashfaqulla Khan",
             image: "images/fighters/ashfaqulla-khan.jpg",
 
             biography:
-                "Ashfaqulla Khan was a revolutionary associated with the Hindustan Republican Association and the Kakori action. His friendship and political partnership with Ram Prasad Bismil became an example of cooperation across religious communities.",
+                "Ashfaqulla Khan was a revolutionary associated with the Hindustan Republican Association and the Kakori action. His friendship and political partnership with Ram Prasad Bismil became an important example of cooperation in the freedom movement.",
 
             contributions: [
                 "Participated in the Kakori action.",
                 "Worked within the Hindustan Republican Association.",
                 "Worked closely with Ram Prasad Bismil.",
-                "Became a symbol of Hindu-Muslim unity."
+                "Became a symbol of unity in the freedom movement."
             ]
         },
 
@@ -480,17 +454,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Khed, Maharashtra",
             region: "Maharashtra",
             knownFor: "Revolutionary movement",
-            wikipedia: "Shivaram Rajguru",
             image: "images/fighters/rajguru.jpg",
 
             biography:
-                "Shivaram Rajguru was a revolutionary associated with the Hindustan Socialist Republican Association. He worked alongside Bhagat Singh and Sukhdev and became one of the best-known young revolutionaries of the independence era.",
+                "Shivaram Rajguru was a revolutionary associated with the Hindustan Socialist Republican Association. He worked alongside Bhagat Singh and Sukhdev.",
 
             contributions: [
                 "Worked within the revolutionary movement.",
                 "Collaborated with Bhagat Singh and Sukhdev.",
                 "Participated in revolutionary activities.",
-                "Inspired later generations."
+                "Became one of the best-known young revolutionaries."
             ]
         },
 
@@ -503,7 +476,6 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Ludhiana, Punjab",
             region: "Punjab",
             knownFor: "Revolutionary movement",
-            wikipedia: "Sukhdev Thapar",
             image: "images/fighters/sukhdev.jpg",
 
             biography:
@@ -526,17 +498,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Sunam, Punjab",
             region: "Punjab",
             knownFor: "Jallianwala Bagh legacy",
-            wikipedia: "Udham Singh",
             image: "images/fighters/udham-singh.jpg",
 
             biography:
-                "Udham Singh was a revolutionary nationalist who became strongly associated with the memory of the Jallianwala Bagh massacre. He later carried his protest against colonial officials to Britain.",
+                "Udham Singh was a revolutionary nationalist associated with the memory of the Jallianwala Bagh massacre and anti-colonial resistance.",
 
             contributions: [
                 "Kept the memory of Jallianwala Bagh alive.",
                 "Became associated with revolutionary anti-colonial politics.",
-                "Carried his political campaign to Britain.",
-                "Became a prominent symbol of resistance in Punjab."
+                "Represented a strong strand of resistance in Punjab."
             ]
         },
 
@@ -549,17 +519,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Chittagong",
             region: "Bengal",
             knownFor: "Chittagong Armoury Raid",
-            wikipedia: "Surya Sen",
             image: "images/fighters/surya-sen.jpg",
 
             biography:
-                "Surya Sen, popularly known as Masterda, was a revolutionary leader who organised the Chittagong Armoury Raid in 1930. He became one of the major figures of Bengal's revolutionary movement.",
+                "Surya Sen, popularly known as Masterda, was a revolutionary leader who organised the Chittagong Armoury Raid in 1930. He became a major figure of Bengal's revolutionary movement.",
 
             contributions: [
                 "Organised the Chittagong Armoury Raid.",
                 "Built revolutionary networks in Bengal.",
-                "Inspired young people to join the movement.",
-                "Led resistance against British authority."
+                "Inspired young people to participate in the independence struggle."
             ]
         },
 
@@ -572,7 +540,6 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Andhra region",
             region: "Andhra Pradesh",
             knownFor: "Rampa Rebellion",
-            wikipedia: "Alluri Sitarama Raju",
             image: "images/fighters/alluri-sitarama-raju.jpg",
 
             biography:
@@ -580,8 +547,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             contributions: [
                 "Led the Rampa Rebellion.",
-                "Organised tribal resistance.",
-                "Opposed colonial forest policies.",
+                "Organised tribal resistance to colonial policies.",
                 "Became an important regional symbol of resistance."
             ]
         },
@@ -595,7 +561,6 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Ulihatu, Jharkhand",
             region: "Jharkhand",
             knownFor: "Munda Ulgulan",
-            wikipedia: "Birsa Munda",
             image: "images/fighters/birsa-munda.jpg",
 
             biography:
@@ -618,7 +583,6 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Tamenglong region",
             region: "Northeast India",
             knownFor: "Heraka movement",
-            wikipedia: "Rani Gaidinliu",
             image: "images/fighters/rani-gaidinliu.jpg",
 
             biography:
@@ -627,8 +591,8 @@ document.addEventListener("DOMContentLoaded", () => {
             contributions: [
                 "Participated in the Heraka movement.",
                 "Resisted British authority in the Northeast.",
-                "Was imprisoned by the colonial government.",
-                "Became a symbol of indigenous resistance."
+                "Inspired indigenous resistance.",
+                "Became an important figure in India's freedom history."
             ]
         },
 
@@ -641,11 +605,10 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Tamluk, Bengal",
             region: "Bengal",
             knownFor: "Quit India Movement",
-            wikipedia: "Matangini Hazra",
             image: "images/fighters/matangini-hazra.jpg",
 
             biography:
-                "Matangini Hazra was a participant in India's independence movement who became associated with the Quit India Movement in Bengal. She is remembered for her courage and participation in nationalist campaigns.",
+                "Matangini Hazra was a participant in India's independence movement who became associated with the Quit India Movement. She is remembered for her participation in the movement in Bengal.",
 
             contributions: [
                 "Participated in civil disobedience campaigns.",
@@ -661,10 +624,9 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "women",
             categoryLabel: "Freedom Activist",
             dates: "1909 — 1996",
-            born: "Kalka",
+            born: "Kalka, Punjab region",
             region: "Delhi",
             knownFor: "Quit India Movement",
-            wikipedia: "Aruna Asaf Ali",
             image: "images/fighters/aruna-asaf-ali.jpg",
 
             biography:
@@ -673,7 +635,7 @@ document.addEventListener("DOMContentLoaded", () => {
             contributions: [
                 "Participated in the Quit India Movement.",
                 "Worked through underground networks.",
-                "Continued political activity despite repression.",
+                "Continued political activity during colonial repression.",
                 "Became a prominent symbol of resistance."
             ]
         },
@@ -682,12 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
             id: "usha-mehta",
             name: "Usha Mehta",
             category: "women",
-            categoryLabel: "Freedom Activist",
+            categoryLabel: "Young Freedom Activist",
             dates: "1920 — 2000",
-            born: "Gandhi Nagar, Gujarat",
-            region: "Bombay / Gujarat",
+            born: "Savli, Gujarat",
+            region: "Gujarat / Bombay",
             knownFor: "Congress Radio",
-            wikipedia: "Usha Mehta",
             image: "images/fighters/usha-mehta.jpg",
 
             biography:
@@ -696,8 +657,8 @@ document.addEventListener("DOMContentLoaded", () => {
             contributions: [
                 "Helped operate the underground Congress Radio.",
                 "Supported communication during the Quit India Movement.",
-                "Participated in nationalist activities from a young age.",
-                "Became an example of youth participation."
+                "Participated in the national movement at a young age.",
+                "Became an example of youth participation in the struggle."
             ]
         },
 
@@ -710,17 +671,16 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Madras",
             region: "India / Southeast Asia",
             knownFor: "Rani of Jhansi Regiment",
-            wikipedia: "Lakshmi Sahgal",
             image: "images/fighters/lakshmi-sahgal.jpg",
 
             biography:
-                "Lakshmi Sahgal was a physician and nationalist who joined Subhas Chandra Bose's Indian National Army. She became commander of the Rani of Jhansi Regiment, a women's military unit of the INA.",
+                "Lakshmi Sahgal was a physician and nationalist who joined Subhas Chandra Bose's Indian National Army. She became commander of the Rani of Jhansi Regiment, a women's unit of the INA.",
 
             contributions: [
                 "Joined the Indian National Army.",
                 "Commanded the Rani of Jhansi Regiment.",
-                "Expanded women's participation in the INA.",
-                "Served as a military and medical leader."
+                "Promoted women's participation in the INA.",
+                "Served as an important figure in the Azad Hind movement."
             ]
         },
 
@@ -733,17 +693,15 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Barangabari, Assam",
             region: "Assam",
             knownFor: "Quit India Movement",
-            wikipedia: "Kanaklata Barua",
             image: "images/fighters/kanaklata-barua.jpg",
 
             biography:
-                "Kanaklata Barua was a young Assamese freedom activist who participated in the Quit India Movement. Her participation made her a remembered symbol of youthful involvement in India's independence struggle.",
+                "Kanaklata Barua was a young Assamese freedom activist who participated in the Quit India Movement. She became a symbol of youthful participation in India's struggle for independence.",
 
             contributions: [
                 "Participated in the Quit India Movement.",
-                "Mobilised young people in Assam.",
-                "Participated in nationalist demonstrations.",
-                "Became a symbol of youthful courage."
+                "Inspired youth participation in Assam.",
+                "Became a prominent symbol of courage."
             ]
         },
 
@@ -755,18 +713,17 @@ document.addEventListener("DOMContentLoaded", () => {
             dates: "1880 — 1967",
             born: "Parner, Maharashtra",
             region: "Maharashtra",
-            knownFor: "Nationalist activism",
-            wikipedia: "Senapati Bapat",
+            knownFor: "Nationalist and social movements",
             image: "images/fighters/senapati-bapat.jpg",
 
             biography:
-                "Pandurang Mahadev Bapat, popularly known as Senapati Bapat, was a nationalist and social activist associated with revolutionary politics and later mass movements.",
+                "Pandurang Mahadev Bapat, popularly known as Senapati Bapat, was a nationalist and social activist associated with revolutionary politics and later mass movements in Maharashtra.",
 
             contributions: [
                 "Participated in nationalist political activities.",
-                "Worked in revolutionary circles.",
                 "Led public campaigns in Maharashtra.",
-                "Became popularly known as Senapati Bapat."
+                "Supported social and political causes.",
+                "Became widely known as Senapati Bapat."
             ]
         },
 
@@ -779,24 +736,22 @@ document.addEventListener("DOMContentLoaded", () => {
             born: "Pune region",
             region: "Maharashtra",
             knownFor: "Early revolutionary resistance",
-            wikipedia: "Chapekar brothers",
             image: "images/fighters/chapekar-brothers.jpg",
 
             biography:
-                "Damodar, Balkrishna and Vasudeo Chapekar were among the early revolutionary figures in colonial India. Their activities reflected growing opposition to British rule in the late nineteenth century and influenced later revolutionary politics.",
+                "Damodar, Balkrishna and Vasudeo Chapekar were among the early revolutionary figures in colonial India. Their activities reflected growing opposition to British rule in the late nineteenth century.",
 
             contributions: [
                 "Participated in early revolutionary resistance.",
                 "Became associated with anti-colonial politics in Pune.",
-                "Influenced later revolutionary movements.",
-                "Represented an early phase of armed revolutionary nationalism."
+                "Influenced later revolutionary movements."
             ]
         }
     ];
 
 
     /* =====================================================
-       DOM
+       DOM ELEMENTS
     ===================================================== */
 
     const loader = document.getElementById("ffLoader");
@@ -833,120 +788,57 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentFilter = "all";
     let searchTerm = "";
 
-
-    /* =====================================================
-       FALLBACK
-    ===================================================== */
-
     const fallbackImage =
         "images/fighters/default-fighter.jpg";
 
 
     /* =====================================================
-       IMAGE SYSTEM
-       
-       1. Try your local image.
-       2. If it does not exist, use Wikipedia.
-       3. If Wikipedia fails, use fallback.
+       IMAGE TEST / FALLBACK
     ===================================================== */
 
-    function getWikipediaImage(title, callback) {
+    function setBackgroundImageWithFallback(element, image) {
 
-        const api =
-            "https://en.wikipedia.org/w/api.php" +
-            "?action=query" +
-            "&format=json" +
-            "&origin=*" +
-            "&prop=pageimages" +
-            "&piprop=thumbnail" +
-            "&pithumbsize=900" +
-            "&titles=" +
-            encodeURIComponent(title);
+        if (!element) return;
 
-        fetch(api)
-            .then(response => response.json())
-            .then(data => {
+        const testImage = new Image();
 
-                const pages =
-                    data.query?.pages || {};
-
-                const page =
-                    Object.values(pages)[0];
-
-                if (
-                    page &&
-                    page.thumbnail &&
-                    page.thumbnail.source
-                ) {
-                    callback(
-                        page.thumbnail.source
-                    );
-                } else {
-                    callback(fallbackImage);
-                }
-
-            })
-            .catch(() => {
-                callback(fallbackImage);
-            });
-    }
-
-
-    function loadFighterImage(element, fighter) {
-
-        const localImage =
-            new Image();
-
-        localImage.onload = () => {
-
+        testImage.onload = () => {
             element.style.backgroundImage =
-                `url("${fighter.image}")`;
-
+                `url("${image}")`;
         };
 
-        localImage.onerror = () => {
-
-            getWikipediaImage(
-                fighter.wikipedia,
-                imageUrl => {
-
-                    element.style.backgroundImage =
-                        `url("${imageUrl}")`;
-
-                }
-            );
+        testImage.onerror = () => {
+            element.style.backgroundImage =
+                `url("${fallbackImage}")`;
         };
 
-        localImage.src =
-            fighter.image;
+        testImage.src = image;
     }
 
 
     /* =====================================================
-       CREATE CARD
+       CREATE FIGHTER CARD
     ===================================================== */
 
     function createFighterCard(fighter, index) {
 
-        const card =
-            document.createElement("article");
+        const card = document.createElement("article");
 
-        card.className =
-            "fighter-card";
+        card.className = "fighter-card";
 
-        card.dataset.category =
-            fighter.category;
-
-        card.dataset.id =
-            fighter.id;
+        card.dataset.category = fighter.category;
+        card.dataset.id = fighter.id;
 
         card.style.animationDelay =
-            `${Math.min(index * 0.04, 0.5)}s`;
-
+            `${Math.min(index * 0.05, 0.5)}s`;
 
         card.innerHTML = `
 
-            <div class="fighter-image"></div>
+            <div
+                class="fighter-image"
+                role="img"
+                aria-label="${fighter.name}"
+            ></div>
 
             <div class="fighter-overlay"></div>
 
@@ -976,83 +868,59 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
-
         const image =
             card.querySelector(".fighter-image");
 
-
-        /*
-         * IMPORTANT:
-         * Background images do not fire a normal
-         * img.onerror event, so we use Image()
-         * to verify the local file first.
-         */
-
-        loadFighterImage(
+        setBackgroundImageWithFallback(
             image,
-            fighter
+            fighter.image
         );
 
-
-        card.addEventListener(
-            "click",
-            () => openModal(fighter)
-        );
-
+        card.addEventListener("click", () => {
+            openModal(fighter);
+        });
 
         addTiltEffect(card);
-
 
         return card;
     }
 
 
     /* =====================================================
-       RENDER
+       RENDER FIGHTERS
     ===================================================== */
 
     function renderFighters() {
 
-        if (!fightersGrid) {
-            return;
-        }
+        if (!fightersGrid) return;
 
+        const filtered = fighters.filter(fighter => {
 
-        const filtered =
-            fighters.filter(fighter => {
+            const matchesCategory =
+                currentFilter === "all" ||
+                fighter.category === currentFilter;
 
-                const categoryMatch =
-                    currentFilter === "all" ||
-                    fighter.category === currentFilter;
+            const searchableText = `
+                ${fighter.name}
+                ${fighter.region}
+                ${fighter.knownFor}
+                ${fighter.categoryLabel}
+                ${fighter.biography}
+                ${fighter.born}
+                ${fighter.dates}
+            `.toLowerCase();
 
-
-                const searchableText = `
-                    ${fighter.name}
-                    ${fighter.region}
-                    ${fighter.knownFor}
-                    ${fighter.categoryLabel}
-                    ${fighter.biography}
-                    ${fighter.contributions.join(" ")}
-                `.toLowerCase();
-
-
-                const searchMatch =
-                    searchableText.includes(
-                        searchTerm.toLowerCase()
-                    );
-
-
-                return (
-                    categoryMatch &&
-                    searchMatch
+            const matchesSearch =
+                searchableText.includes(
+                    searchTerm.toLowerCase()
                 );
-            });
 
+            return matchesCategory && matchesSearch;
+        });
 
         fightersGrid.innerHTML = "";
 
-
-        if (!filtered.length) {
+        if (filtered.length === 0) {
 
             if (noResults) {
                 noResults.hidden = false;
@@ -1061,24 +929,20 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
         if (noResults) {
             noResults.hidden = true;
         }
 
+        filtered.forEach((fighter, index) => {
 
-        filtered.forEach(
-            (fighter, index) => {
+            fightersGrid.appendChild(
+                createFighterCard(
+                    fighter,
+                    index
+                )
+            );
 
-                fightersGrid.appendChild(
-                    createFighterCard(
-                        fighter,
-                        index
-                    )
-                );
-
-            }
-        );
+        });
     }
 
 
@@ -1086,17 +950,19 @@ document.addEventListener("DOMContentLoaded", () => {
        SEARCH
     ===================================================== */
 
-    searchInput?.addEventListener(
-        "input",
-        event => {
+    if (searchInput) {
 
-            searchTerm =
-                event.target.value.trim();
+        searchInput.addEventListener(
+            "input",
+            event => {
 
-            renderFighters();
+                searchTerm =
+                    event.target.value.trim();
 
-        }
-    );
+                renderFighters();
+            }
+        );
+    }
 
 
     /* =====================================================
@@ -1109,9 +975,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             () => {
 
-                filterButtons.forEach(btn =>
-                    btn.classList.remove("active")
-                );
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
                 button.classList.add("active");
 
@@ -1127,15 +993,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       MODAL
+       OPEN MODAL
     ===================================================== */
 
     function openModal(fighter) {
 
-        if (!modal) {
-            return;
-        }
+        if (!modal) return;
 
+        setBackgroundImageWithFallback(
+            modalPortrait,
+            fighter.image
+        );
 
         modalCategory.textContent =
             fighter.categoryLabel;
@@ -1158,52 +1026,10 @@ document.addEventListener("DOMContentLoaded", () => {
         modalBiography.textContent =
             fighter.biography;
 
-
         modalContributions.innerHTML =
             fighter.contributions
                 .map(item => `<li>${item}</li>`)
                 .join("");
-
-
-        /*
-         * Load modal image using the same
-         * local → Wikipedia → fallback system.
-         */
-
-        modalPortrait.style.backgroundImage =
-            `url("${fallbackImage}")`;
-
-
-        const localImage =
-            new Image();
-
-
-        localImage.onload = () => {
-
-            modalPortrait.style.backgroundImage =
-                `url("${fighter.image}")`;
-
-        };
-
-
-        localImage.onerror = () => {
-
-            getWikipediaImage(
-                fighter.wikipedia,
-                imageUrl => {
-
-                    modalPortrait.style.backgroundImage =
-                        `url("${imageUrl}")`;
-
-                }
-            );
-
-        };
-
-
-        localImage.src =
-            fighter.image;
-
 
         modal.classList.add("active");
 
@@ -1218,12 +1044,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* =====================================================
+       CLOSE MODAL
+    ===================================================== */
+
     function closeModal() {
 
-        if (!modal) {
-            return;
-        }
-
+        if (!modal) return;
 
         modal.classList.remove("active");
 
@@ -1238,17 +1065,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    modalClose?.addEventListener(
-        "click",
-        closeModal
-    );
+    if (modalClose) {
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+    }
+
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener(
+            "click",
+            closeModal
+        );
+    }
 
 
-    modalBackdrop?.addEventListener(
-        "click",
-        closeModal
-    );
-
+    /* =====================================================
+       ESCAPE KEY
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
@@ -1256,9 +1090,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (
                 event.key === "Escape" &&
-                modal?.classList.contains("active")
+                modal &&
+                modal.classList.contains("active")
             ) {
+
                 closeModal();
+
             }
 
         }
@@ -1269,60 +1106,77 @@ document.addEventListener("DOMContentLoaded", () => {
        RANDOM HERO
     ===================================================== */
 
-    randomHero?.addEventListener(
-        "click",
-        () => {
+    if (randomHero) {
 
-            const randomIndex =
-                Math.floor(
-                    Math.random() *
-                    fighters.length
+        randomHero.addEventListener(
+            "click",
+            () => {
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random() *
+                        fighters.length
+                    );
+
+                openModal(
+                    fighters[randomIndex]
                 );
-
-            openModal(
-                fighters[randomIndex]
-            );
-
-        }
-    );
+            }
+        );
+    }
 
 
     /* =====================================================
        EXPLORE HEROES
     ===================================================== */
 
-    exploreHeroes?.addEventListener(
-        "click",
-        () => {
+    if (exploreHeroes) {
 
-            document
-                .getElementById("heroes")
-                ?.scrollIntoView({
-                    behavior: "smooth"
-                });
+        exploreHeroes.addEventListener(
+            "click",
+            () => {
 
-        }
-    );
+                const explorer =
+                    document.getElementById("heroes");
+
+                if (explorer) {
+
+                    explorer.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+            }
+        );
+    }
 
 
     /* =====================================================
        MOBILE MENU
     ===================================================== */
 
-    mobileMenu?.addEventListener(
-        "click",
-        () => {
+    if (mobileMenu) {
 
-            nav?.classList.toggle("open");
+        mobileMenu.addEventListener(
+            "click",
+            () => {
 
-            mobileMenu.textContent =
-                nav?.classList.contains("open")
-                    ? "×"
-                    : "☰";
+                if (!nav) return;
 
-        }
-    );
+                nav.classList.toggle("open");
 
+                mobileMenu.textContent =
+                    nav.classList.contains("open")
+                        ? "×"
+                        : "☰";
+            }
+        );
+    }
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU AFTER LINK
+    ===================================================== */
 
     document
         .querySelectorAll(".ff-nav a")
@@ -1358,7 +1212,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
         card.addEventListener(
             "mousemove",
             event => {
@@ -1366,15 +1219,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const rect =
                     card.getBoundingClientRect();
 
-
                 const x =
-                    event.clientX -
-                    rect.left;
+                    event.clientX - rect.left;
 
                 const y =
-                    event.clientY -
-                    rect.top;
-
+                    event.clientY - rect.top;
 
                 const centerX =
                     rect.width / 2;
@@ -1382,45 +1231,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 const centerY =
                     rect.height / 2;
 
-
                 const rotateY =
                     (x - centerX) / 22;
 
                 const rotateX =
                     (centerY - y) / 22;
 
-
-                card.style.transform =
-                    `
+                card.style.transform = `
                     translateY(-10px)
                     rotateX(${rotateX}deg)
                     rotateY(${rotateY}deg)
                     scale(1.015)
-                    `;
+                `;
             }
         );
-
 
         card.addEventListener(
             "mouseleave",
             () => {
-
                 card.style.transform = "";
-
             }
         );
     }
 
 
     /* =====================================================
-       TIMELINE ANIMATION
+       TIMELINE OBSERVER
     ===================================================== */
 
     const timelineItems =
         document.querySelectorAll(
             ".timeline-item"
         );
-
 
     if ("IntersectionObserver" in window) {
 
@@ -1430,14 +1272,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        if (entry.isIntersecting) {
 
                             entry.target.classList.add(
                                 "visible"
                             );
 
+                            timelineObserver.unobserve(
+                                entry.target
+                            );
                         }
 
                     });
@@ -1448,10 +1291,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
-
-        timelineItems.forEach(item =>
-            timelineObserver.observe(item)
-        );
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
     }
 
 
@@ -1464,7 +1306,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ".stat-card, .section-heading, .explorer-heading, .featured-content"
         );
 
-
     if ("IntersectionObserver" in window) {
 
         const revealObserver =
@@ -1473,9 +1314,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        if (entry.isIntersecting) {
 
                             entry.target.classList.add(
                                 "revealed"
@@ -1484,7 +1323,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             revealObserver.unobserve(
                                 entry.target
                             );
-
                         }
 
                     });
@@ -1495,10 +1333,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
-
-        revealElements.forEach(element =>
-            revealObserver.observe(element)
-        );
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
     }
 
 
@@ -1506,29 +1343,24 @@ document.addEventListener("DOMContentLoaded", () => {
        HERO PARALLAX
     ===================================================== */
 
-    const heroBackground =
+    const hero =
         document.querySelector(
             ".hero-background"
         );
 
-
     let ticking = false;
-
 
     window.addEventListener(
         "scroll",
         () => {
 
-            if (ticking) {
-                return;
-            }
-
+            if (ticking) return;
 
             window.requestAnimationFrame(
                 () => {
 
                     if (
-                        heroBackground &&
+                        hero &&
                         window.scrollY <
                         window.innerHeight
                     ) {
@@ -1536,23 +1368,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         const offset =
                             window.scrollY * 0.18;
 
-
-                        heroBackground.style.transform =
-                            `
-                            scale(1.04)
-                            translateY(${offset}px)
-                            `;
+                        hero.style.transform =
+                            `scale(1.04)
+                             translateY(${offset}px)`;
                     }
 
-
                     ticking = false;
-
                 }
             );
 
-
             ticking = true;
-
         },
         {
             passive: true
@@ -1578,7 +1403,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 700
             );
-
         }
     );
 
@@ -1594,8 +1418,7 @@ document.addEventListener("DOMContentLoaded", () => {
        CONSOLE
     ===================================================== */
 
-    console.log(
-        `
+    console.log(`
 🇮🇳 INDIAN GLORY
 Freedom Fighters Archive
 
@@ -1603,14 +1426,14 @@ ${fighters.length} historical entries loaded.
 
 ✓ Search
 ✓ Filters
+✓ Fighter Cards
+✓ Image Fallback
 ✓ 3D Cards
-✓ Historical Information
-✓ Automatic Image Loading
-✓ Wikipedia Image Fallback
-✓ Modal Stories
-✓ Timeline Animation
+✓ Historical Modal
+✓ Random Hero
+✓ Timeline
 ✓ Mobile Navigation
-        `
-    );
+✓ Animations
+    `);
 
 });
