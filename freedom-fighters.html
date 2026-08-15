@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Indian Glory — Explore the lives, struggles and contributions of India's freedom fighters."
+    >
+
+    <title>Freedom Fighters | Indian Glory</title>
+
+    <!-- Main website CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Freedom Fighters page CSS -->
+    <link rel="stylesheet" href="freedom-fighters.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PAGE LOADER
+    ====================================================== -->
+
+    <div class="ff-loader" id="ffLoader">
+        <div class="loader-wheel"></div>
+        <p>Remembering the Heroes...</p>
+    </div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="ff-navbar">
+
+        <a href="index.html" class="ff-logo">
+            <span class="logo-mark">🇮🇳</span>
+            <span>INDIAN GLORY</span>
+        </a>
+
+        <nav class="ff-nav">
+
+            <a href="index.html">Home</a>
+
+            <a
+                href="freedom-fighters.html"
+                class="active"
+            >
+                Freedom Fighters
+            </a>
+
+            <a href="index.html#timeline">
+                Timeline
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="ff-hero">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-glow hero-glow-one"></div>
+            <div class="hero-glow hero-glow-two"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-eyebrow">
+                    INDIA'S FREEDOM STRUGGLE
+                </p>
+
+                <h1>
+                    THE
+                    <span>FREEDOM</span>
+                    FIGHTERS
+                </h1>
+
+                <p class="hero-description">
+                    Discover the lives, courage, ideas and sacrifices
+                    of the people who shaped India's journey toward
+                    independence.
+                </p>
+
+                <div class="hero-actions">
+
+                    <button
+                        class="primary-button"
+                        id="exploreHeroes"
+                    >
+                        Explore the Heroes
+                        <span>↓</span>
+                    </button>
+
+                    <a
+                        href="#timeline"
+                        class="secondary-button"
+                    >
+                        View Timeline
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Floating decorative card -->
+
+            <div class="hero-floating-card">
+
+                <span class="floating-symbol">
+                    ✦
+                </span>
+
+                <div>
+                    <small>
+                        1857 — 1947
+                    </small>
+
+                    <strong>
+                        A Nation's Journey
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="hero-scroll">
+
+                <span>SCROLL TO EXPLORE</span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
+
+        <section class="ff-introduction" id="heroes">
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    THE PEOPLE BEHIND THE HISTORY
+                </p>
+
+                <h2>
+                    They Were
+                    <span>Many.</span>
+                </h2>
+
+                <p>
+                    India's freedom struggle was shaped by people
+                    from different regions, communities, movements
+                    and generations. This collection is designed to
+                    bring both well-known and lesser-known stories
+                    into one place.
+                </p>
+
+            </div>
+
+
+            <div class="stats-row">
+
+                <div class="stat-card">
+                    <strong>1857</strong>
+                    <span>First major uprising</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>90</strong>
+                    <span>Years of the final struggle</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong>1947</strong>
+                    <span>Independence</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCH & FILTERS
+        ================================================== -->
+
+        <section class="ff-explorer">
+
+            <div class="explorer-heading">
+
+                <div>
+                    <p class="section-kicker">
+                        EXPLORE
+                    </p>
+
+                    <h2>
+                        Freedom Fighters
+                    </h2>
+                </div>
+
+                <p>
+                    Search by name, movement, region or category.
+                </p>
+
+            </div>
+
+
+            <div class="fighter-controls">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="fighterSearch"
+                        placeholder="Search a freedom fighter..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter-button active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="revolutionary"
+                    >
+                        Revolutionaries
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="leader"
+                    >
+                        Leaders
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="women"
+                    >
+                        Women
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="tribal"
+                    >
+                        Tribal Heroes
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="young"
+                    >
+                        Young Heroes
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cards are generated by JavaScript -->
+
+            <div
+                class="fighters-grid"
+                id="fightersGrid"
+            ></div>
+
+
+            <div
+                class="no-results"
+                id="noResults"
+                hidden
+            >
+                <span>🇮🇳</span>
+
+                <h3>
+                    No hero found
+                </h3>
+
+                <p>
+                    Try another name or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FEATURED HERO
+        ================================================== -->
+
+        <section class="featured-hero">
+
+            <div class="featured-image">
+
+                <div class="image-overlay"></div>
+
+                <div class="featured-badge">
+                    FEATURED STORY
+                </div>
+
+            </div>
+
+
+            <div class="featured-content">
+
+                <p class="section-kicker">
+                    A SYMBOL OF COURAGE
+                </p>
+
+                <h2>
+                    The story of
+                    <span>India's freedom</span>
+                    belongs to millions.
+                </h2>
+
+                <p>
+                    From the uprising of 1857 to the final years
+                    before independence, countless people contributed
+                    to the freedom movement in different ways.
+                </p>
+
+                <p>
+                    Some led mass movements. Some organized
+                    resistance. Some worked underground. Others
+                    spread ideas, built organizations, supported
+                    movements or inspired entire generations.
+                </p>
+
+                <button
+                    class="outline-button"
+                    id="randomHero"
+                >
+                    Discover a Hero
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TIMELINE
+        ================================================== -->
+
+        <section
+            class="ff-timeline"
+            id="timeline"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    THE JOURNEY
+                </p>
+
+                <h2>
+                    From Resistance
+                    <span>to Freedom</span>
+                </h2>
+
+                <p>
+                    Explore important periods in India's struggle
+                    against colonial rule.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-track">
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1857</span>
+
+                    <h3>
+                        The Great Uprising
+                    </h3>
+
+                    <p>
+                        A major uprising against British rule
+                        involving soldiers, rulers, peasants
+                        and communities across several regions.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1905</span>
+
+                    <h3>
+                        Swadeshi Movement
+                    </h3>
+
+                    <p>
+                        The movement encouraged self-reliance,
+                        indigenous goods and opposition to
+                        colonial policies.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1919</span>
+
+                    <h3>
+                        A New Phase
+                    </h3>
+
+                    <p>
+                        The national movement entered a new phase
+                        of mass political participation and
+                        resistance.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1930</span>
+
+                    <h3>
+                        Civil Disobedience
+                    </h3>
+
+                    <p>
+                        The Salt March and wider civil
+                        disobedience campaigns became important
+                        moments in the independence movement.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1942</span>
+
+                    <h3>
+                        Quit India Movement
+                    </h3>
+
+                    <p>
+                        A mass movement demanding an end to
+                        British rule spread across India.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <span>1947</span>
+
+                    <h3>
+                        Independence
+                    </h3>
+
+                    <p>
+                        India became independent on
+                        15 August 1947.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL MESSAGE
+        ================================================== -->
+
+        <section class="ff-final">
+
+            <div class="final-symbol">
+                🇮🇳
+            </div>
+
+            <p class="section-kicker">
+                REMEMBER • RESPECT • LEARN
+            </p>
+
+            <h2>
+                Freedom was not
+                <span>given.</span>
+            </h2>
+
+            <p>
+                It was built through generations of courage,
+                sacrifice, perseverance and hope.
+            </p>
+
+            <div class="final-line"></div>
+
+            <strong>
+                JAI HIND
+            </strong>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FIGHTER DETAIL MODAL
+    ====================================================== -->
+
+    <div
+        class="fighter-modal"
+        id="fighterModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div class="fighter-modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+            <div
+                class="modal-portrait"
+                id="modalPortrait"
+            ></div>
+
+            <div class="modal-information">
+
+                <p
+                    class="modal-category"
+                    id="modalCategory"
+                ></p>
+
+                <h2 id="modalName">
+                    Freedom Fighter
+                </h2>
+
+                <p
+                    class="modal-dates"
+                    id="modalDates"
+                ></p>
+
+                <div class="modal-divider"></div>
+
+                <div class="modal-facts">
+
+                    <div>
+                        <span>Born</span>
+                        <strong id="modalBorn">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Region</span>
+                        <strong id="modalRegion">—</strong>
+                    </div>
+
+                    <div>
+                        <span>Known For</span>
+                        <strong id="modalKnownFor">—</strong>
+                    </div>
+
+                </div>
+
+                <p
+                    class="modal-biography"
+                    id="modalBiography"
+                ></p>
+
+                <div class="modal-contributions">
+
+                    <h3>
+                        Major Contributions
+                    </h3>
+
+                    <ul id="modalContributions"></ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="script.js"></script>
+    <script src="freedom-fighters.js"></script>
+
+</body>
+
+</html>
