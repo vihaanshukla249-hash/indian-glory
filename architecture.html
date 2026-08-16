@@ -3,41 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Architecture — Indian Glory</title>
+
+    <meta
+        name="description"
+        content="Explore the architectural heritage of India — ancient cities, temples, forts, monuments and masterpieces."
+    >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="architecture.css">
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-    <div class="chakra">☸</div>
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div id="pageLoader">
+    <div class="loader-chakra">☸</div>
     <p>INDIAN GLORY</p>
 </div>
 
 
-<!-- NAVIGATION -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header class="site-nav">
 
     <a href="index.html" class="nav-logo">
         <span>INDIAN GLORY</span>
-        <small>HERITAGE • HISTORY • INDIA</small>
+        <small>THE STORY OF INDIA</small>
     </a>
 
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links">
+
         <a href="index.html">HOME</a>
-        <a href="architecture.html" class="active">ARCHITECTURE</a>
-        <a href="freedom-fighters.html">FREEDOM FIGHTERS</a>
-        <a href="culture.html">CULTURE</a>
-        <a href="timeline.html">TIMELINE</a>
+
+        <a href="architecture.html" class="active">
+            ARCHITECTURE
+        </a>
+
+        <a href="freedom-fighters.html">
+            FREEDOM FIGHTERS
+        </a>
+
+        <a href="culture.html">
+            CULTURE
+        </a>
+
     </nav>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+    <button
+        class="menu-toggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+    >
         <span></span>
         <span></span>
         <span></span>
@@ -46,542 +76,876 @@
 </header>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <main>
 
-<section class="hero">
+<section class="architecture-hero">
 
-    <div class="hero-orb orb-one"></div>
-    <div class="hero-orb orb-two"></div>
+    <div class="hero-background"></div>
+
     <div class="hero-grid"></div>
 
-    <div class="hero-content">
+    <div class="hero-orbit hero-orbit-one"></div>
+    <div class="hero-orbit hero-orbit-two"></div>
 
-        <p class="eyebrow">INDIA • ARCHITECTURAL HERITAGE</p>
+    <div class="hero-content reveal">
 
-        <h1>
-            ARCHI<span>TECTURE</span>
-        </h1>
+        <div class="hero-kicker">
+            <span></span>
+            ARCHITECTURAL HERITAGE
+            <span></span>
+        </div>
 
-        <p class="hero-text">
-            From ancient cities carved in stone to magnificent temples,
-            forts, mosques and palaces — India's architecture is a living
-            record of thousands of years of civilisation.
+        <p class="hero-date">
+            3000+ YEARS OF CIVILISATION
         </p>
 
-        <div class="hero-meta">
+        <h1>
+            <span>STONE</span>
+            <span>THAT</span>
+            <strong>SPEAKS</strong>
+        </h1>
+
+        <p class="hero-description">
+            From ancient cities and sacred temples to magnificent forts
+            and monumental masterpieces, India's architecture preserves
+            the imagination, engineering and identity of generations.
+        </p>
+
+        <a href="#explore" class="hero-button">
+            EXPLORE HERITAGE
+            <strong>↓</strong>
+        </a>
+
+    </div>
+
+    <div class="hero-bottom">
+        <span>01</span>
+
+        <div class="hero-line"></div>
+
+        <p>SCROLL TO EXPLORE</p>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro-section reveal" id="explore">
+
+    <div class="intro-side">
+        <span class="section-number">01 / ARCHITECTURE</span>
+    </div>
+
+    <div class="intro-content">
+
+        <p class="eyebrow">
+            A CIVILISATION BUILT IN STONE
+        </p>
+
+        <h2>
+            India built<br>
+            <span>more than monuments.</span>
+        </h2>
+
+        <p class="intro-large">
+            It built ideas that survived centuries.
+        </p>
+
+        <p class="intro-text">
+            Indian architecture reflects thousands of years of
+            experimentation in engineering, mathematics, religion,
+            art and urban planning. Every region developed its own
+            visual language while remaining connected to the larger
+            story of the civilisation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED MONUMENT
+===================================================== -->
+
+<section class="featured-section reveal">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            MASTERPIECE
+        </p>
+
+        <h2>
+            The <span>Taj Mahal</span>
+        </h2>
+
+        <p>
+            A monument of Mughal architecture and one of the world's
+            most recognised expressions of symmetry, craftsmanship
+            and monumental design.
+        </p>
+
+    </div>
+
+    <article class="featured-card">
+
+        <div class="featured-image">
+
+            <img
+                src="images/taj-mahal.jpg"
+                alt="Taj Mahal"
+                onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85'"
+            >
+
+        </div>
+
+        <div class="featured-content">
+
+            <span>AGRA · UTTAR PRADESH</span>
+
+            <h3>Taj Mahal</h3>
+
+            <p>
+                Commissioned by Shah Jahan in memory of Mumtaz Mahal,
+                the Taj Mahal was constructed in the 17th century.
+                Its white marble structure, geometric planning,
+                domes, arches and intricate decorative work represent
+                the extraordinary refinement of Mughal architecture.
+            </p>
+
+            <div class="feature-stats">
+
+                <div>
+                    <strong>1632</strong>
+                    <span>Construction began</span>
+                </div>
+
+                <div>
+                    <strong>UNESCO</strong>
+                    <span>World Heritage Site</span>
+                </div>
+
+                <div>
+                    <strong>MUGHAL</strong>
+                    <span>Architectural tradition</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- =====================================================
+     ARCHITECTURE COLLECTION
+===================================================== -->
+
+<section class="collection-section reveal">
+
+    <div class="collection-heading">
+
+        <div>
+            <p class="eyebrow">
+                THE COLLECTION
+            </p>
+
+            <h2>
+                Built across<br>
+                <span>India.</span>
+            </h2>
+        </div>
+
+        <p>
+            Explore monuments from different periods, regions and
+            architectural traditions.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="architecture-tools">
+
+        <div class="search-box">
+            <span>⌕</span>
+
+            <input
+                type="search"
+                id="architectureSearch"
+                placeholder="Search monuments..."
+                autocomplete="off"
+            >
+        </div>
+
+        <div class="filters">
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+            >
+                ALL
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="ancient"
+            >
+                ANCIENT
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="temple"
+            >
+                TEMPLES
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="fort"
+            >
+                FORTS
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="medieval"
+            >
+                MEDIEVAL
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="modern"
+            >
+                MODERN
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARDS -->
+
+    <div class="architecture-grid" id="architectureGrid">
+
+
+        <!-- TAJ MAHAL -->
+
+        <article
+            class="architecture-card"
+            data-category="medieval"
+            data-name="Taj Mahal"
+            data-location="Agra Uttar Pradesh"
+            data-period="1632–1653"
+            data-style="Mughal Architecture"
+            data-description="The Taj Mahal is a monumental mausoleum commissioned by Mughal emperor Shah Jahan. Built primarily from white marble, it is renowned for its symmetry, dome, minarets, geometric planning and intricate decorative craftsmanship."
+            data-image="images/taj-mahal.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/taj-mahal.jpg"
+                    alt="Taj Mahal"
+                    onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>MUGHAL · AGRA</span>
+
+                <h3>Taj Mahal</h3>
+
+                <p>
+                    A masterpiece of Mughal architecture.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- RED FORT -->
+
+        <article
+            class="architecture-card"
+            data-category="fort medieval"
+            data-name="Red Fort"
+            data-location="Delhi"
+            data-period="1639–1648"
+            data-style="Mughal Architecture"
+            data-description="The Red Fort was built by Shah Jahan as the main residence of the Mughal emperors in Delhi. Its massive red sandstone walls surround palaces, halls, gardens and ceremonial spaces."
+            data-image="images/red-fort.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/red-fort.jpg"
+                    alt="Red Fort"
+                    onerror="this.src='https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>MUGHAL · DELHI</span>
+
+                <h3>Red Fort</h3>
+
+                <p>
+                    Imperial walls and Mughal grandeur.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- QUTUB MINAR -->
+
+        <article
+            class="architecture-card"
+            data-category="medieval"
+            data-name="Qutub Minar"
+            data-location="Delhi"
+            data-period="12th–14th Century"
+            data-style="Indo-Islamic Architecture"
+            data-description="The Qutub Minar is a monumental minaret complex in Delhi. Its red sandstone and marble construction, carved surfaces and towering vertical form demonstrate the development of Indo-Islamic architecture in northern India."
+            data-image="images/qutub-minar.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/qutub-minar.jpg"
+                    alt="Qutub Minar"
+                    onerror="this.src='https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>INDO-ISLAMIC · DELHI</span>
+
+                <h3>Qutub Minar</h3>
+
+                <p>
+                    A monumental tower of medieval India.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- KONARK -->
+
+        <article
+            class="architecture-card"
+            data-category="temple ancient"
+            data-name="Konark Sun Temple"
+            data-location="Odisha"
+            data-period="13th Century"
+            data-style="Kalinga Architecture"
+            data-description="The Konark Sun Temple was built in the 13th century and conceived as a gigantic stone chariot dedicated to Surya, the Sun God. Its carved wheels, horses and sculptural decoration are among the great achievements of Indian temple architecture."
+            data-image="images/konark.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/konark.jpg"
+                    alt="Konark Sun Temple"
+                    onerror="this.src='https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>KALINGA · ODISHA</span>
+
+                <h3>Konark Sun Temple</h3>
+
+                <p>
+                    A temple imagined as a cosmic chariot.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- AJANTA -->
+
+        <article
+            class="architecture-card"
+            data-category="ancient"
+            data-name="Ajanta Caves"
+            data-location="Maharashtra"
+            data-period="2nd Century BCE – 6th Century CE"
+            data-style="Buddhist Rock-Cut Architecture"
+            data-description="The Ajanta Caves are a collection of Buddhist rock-cut monuments famous for their monasteries, prayer halls and remarkable paintings and sculptures. They preserve an extraordinary record of ancient Indian artistic traditions."
+            data-image="images/ajanta.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/ajanta.jpg"
+                    alt="Ajanta Caves"
+                    onerror="this.src='https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>BUDDHIST · MAHARASHTRA</span>
+
+                <h3>Ajanta Caves</h3>
+
+                <p>
+                    Rock-cut monasteries and ancient paintings.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- ELLORA -->
+
+        <article
+            class="architecture-card"
+            data-category="ancient"
+            data-name="Ellora Caves"
+            data-location="Maharashtra"
+            data-period="6th–10th Century CE"
+            data-style="Rock-Cut Architecture"
+            data-description="The Ellora Caves contain Buddhist, Hindu and Jain monuments carved directly into the basalt cliffs. The Kailasa Temple is particularly remarkable for being carved from a single rock mass."
+            data-image="images/ellora.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/ellora.jpg"
+                    alt="Ellora Caves"
+                    onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010c7f4e8e0?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>ROCK-CUT · MAHARASHTRA</span>
+
+                <h3>Ellora Caves</h3>
+
+                <p>
+                    Three faiths carved into one landscape.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- HAMPI -->
+
+        <article
+            class="architecture-card"
+            data-category="ancient"
+            data-name="Hampi"
+            data-location="Karnataka"
+            data-period="14th–16th Century"
+            data-style="Vijayanagara Architecture"
+            data-description="Hampi was the capital of the Vijayanagara Empire and developed into a vast urban centre filled with temples, markets, royal structures, water systems and monumental gateways."
+            data-image="images/hampi.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/hampi.jpg"
+                    alt="Hampi"
+                    onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010c7f4e8e0?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>VIJAYANAGARA · KARNATAKA</span>
+
+                <h3>Hampi</h3>
+
+                <p>
+                    The monumental capital of Vijayanagara.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- SARCHI -->
+
+        <article
+            class="architecture-card"
+            data-category="ancient"
+            data-name="Sanchi Stupa"
+            data-location="Madhya Pradesh"
+            data-period="3rd Century BCE"
+            data-style="Buddhist Architecture"
+            data-description="The Great Stupa at Sanchi is one of the oldest surviving stone structures in India. Its gateways contain detailed carvings depicting Buddhist traditions, stories and symbols."
+            data-image="images/sanchi.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/sanchi.jpg"
+                    alt="Sanchi Stupa"
+                    onerror="this.src='https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>BUDDHIST · MADHYA PRADESH</span>
+
+                <h3>Sanchi Stupa</h3>
+
+                <p>
+                    One of India's earliest monumental structures.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- CHARMINAR -->
+
+        <article
+            class="architecture-card"
+            data-category="medieval"
+            data-name="Charminar"
+            data-location="Hyderabad Telangana"
+            data-period="1591"
+            data-style="Indo-Islamic Architecture"
+            data-description="The Charminar is Hyderabad's iconic four-towered monument, built in 1591. Its four grand arches and minarets became the architectural symbol of the historic city."
+            data-image="images/charminar.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/charminar.jpg"
+                    alt="Charminar"
+                    onerror="this.src='https://images.unsplash.com/photo-1602661287394-ccf02f8f6f05?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>DECCAN · HYDERABAD</span>
+
+                <h3>Charminar</h3>
+
+                <p>
+                    The four arches of Hyderabad.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- GATEWAY -->
+
+        <article
+            class="architecture-card"
+            data-category="modern"
+            data-name="Gateway of India"
+            data-location="Mumbai Maharashtra"
+            data-period="1924"
+            data-style="Indo-Saracenic Architecture"
+            data-description="The Gateway of India was completed in 1924 on Mumbai's waterfront. Its monumental form combines Indo-Saracenic architectural elements with influences from Gujarati and Islamic traditions."
+            data-image="images/gateway-of-india.jpg"
+        >
+
+            <div class="card-image">
+
+                <img
+                    src="images/gateway-of-india.jpg"
+                    alt="Gateway of India"
+                    onerror="this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=85'"
+                >
+
+            </div>
+
+            <div class="card-overlay"></div>
+
+            <div class="card-content">
+
+                <span>INDO-SARACENIC · MUMBAI</span>
+
+                <h3>Gateway of India</h3>
+
+                <p>
+                    Mumbai's monumental waterfront landmark.
+                </p>
+
+                <button class="card-button">
+                    VIEW STORY →
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="no-results" id="noResults">
+        <span>✦</span>
+        <h3>Nothing Found</h3>
+        <p>Try another monument or category.</p>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ARCHITECTURAL PHILOSOPHY
+===================================================== -->
+
+<section class="philosophy-section reveal">
+
+    <div class="philosophy-background"></div>
+
+    <div class="philosophy-content">
+
+        <p class="eyebrow">
+            THE IDEA
+        </p>
+
+        <h2>
+            Architecture was<br>
+            <span>never only architecture.</span>
+        </h2>
+
+        <p>
+            Temples represented the cosmos. Forts represented power.
+            Stepwells transformed water into architecture. Cities
+            were planned around trade, religion, agriculture and
+            community.
+        </p>
+
+        <div class="philosophy-stats">
+
             <div>
                 <strong>5000+</strong>
-                <span>YEARS OF HERITAGE</span>
+                <span>YEARS OF ARCHITECTURAL HISTORY</span>
             </div>
 
             <div>
-                <strong>28+</strong>
+                <strong>42+</strong>
                 <span>UNESCO WORLD HERITAGE SITES</span>
             </div>
 
             <div>
                 <strong>∞</strong>
-                <span>STORIES IN STONE</span>
+                <span>REGIONAL TRADITIONS</span>
             </div>
+
         </div>
 
     </div>
 
-    <div class="hero-scroll">
-        <span></span>
-        SCROLL TO EXPLORE
-    </div>
-
 </section>
 
 
-<!-- INTRO -->
-<section class="intro section">
-
-    <div class="section-number">01</div>
-
-    <div>
-        <p class="eyebrow">A CIVILISATION IN STONE</p>
-
-        <h2>
-            BUILT BY<br>
-            <span>GENERATIONS.</span>
-        </h2>
-
-        <p class="intro-text">
-            Indian architecture evolved through thousands of years.
-            Harappan cities demonstrated sophisticated urban planning,
-            Buddhist caves preserved extraordinary rock-cut art,
-            Hindu and Jain temples transformed stone into sculpture,
-            while Islamic and Mughal builders introduced new forms,
-            geometry and monumental scale.
-        </p>
-    </div>
-
-</section>
-
-
-<!-- FILTER -->
-<section class="explore section">
-
-    <div class="section-heading">
-
-        <p class="eyebrow">02 • EXPLORE</p>
-
-        <h2>
-            ICONS OF <span>INDIA</span>
-        </h2>
-
-        <p>
-            Explore India's architectural legacy across different
-            periods, traditions and regions.
-        </p>
-
-    </div>
-
-    <div class="controls">
-
-        <div class="filters">
-            <button class="filter active" data-filter="all">ALL</button>
-            <button class="filter" data-filter="ancient">ANCIENT</button>
-            <button class="filter" data-filter="temple">TEMPLES</button>
-            <button class="filter" data-filter="fort">FORTS</button>
-            <button class="filter" data-filter="mughal">MUGHAL</button>
-            <button class="filter" data-filter="colonial">COLONIAL</button>
-        </div>
-
-        <input
-            type="search"
-            id="search"
-            placeholder="Search architecture..."
-            aria-label="Search architecture"
-        >
-
-    </div>
-
-
-    <div class="architecture-grid" id="architectureGrid">
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="ancient"
-            data-name="Dholavira"
-            data-place="Gujarat"
-            data-period="Harappan Civilization"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/dholavira.jpg"
-                    alt="Dholavira archaeological site"
-                    onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010e26f31c5?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>ANCIENT • GUJARAT</span>
-
-                <h3>Dholavira</h3>
-
-                <p>
-                    One of the remarkable cities of the Indus Valley
-                    Civilisation, known for sophisticated water management
-                    and planned urban design.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="temple"
-            data-name="Konark Sun Temple"
-            data-place="Odisha"
-            data-period="13th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/konark.jpg"
-                    alt="Konark Sun Temple"
-                    onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010e26f31c5?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>TEMPLE • ODISHA</span>
-
-                <h3>Konark Sun Temple</h3>
-
-                <p>
-                    A monumental 13th-century temple designed as a gigantic
-                    stone chariot dedicated to Surya, the Sun God.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="fort"
-            data-name="Red Fort"
-            data-place="Delhi"
-            data-period="17th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/red-fort.jpg"
-                    alt="Red Fort Delhi"
-                    onerror="this.src='https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>FORT • DELHI</span>
-
-                <h3>Red Fort</h3>
-
-                <p>
-                    Built by Shah Jahan in the 17th century, the Red Fort
-                    became one of the most important symbols of Mughal
-                    power in Delhi.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="mughal"
-            data-name="Taj Mahal"
-            data-place="Agra"
-            data-period="17th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/taj-mahal.jpg"
-                    alt="Taj Mahal"
-                    onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>MUGHAL • AGRA</span>
-
-                <h3>Taj Mahal</h3>
-
-                <p>
-                    Commissioned by Shah Jahan, the Taj Mahal is renowned
-                    for its white marble, symmetry, gardens and intricate
-                    decorative craftsmanship.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="fort"
-            data-name="Mehrangarh Fort"
-            data-place="Jodhpur"
-            data-period="15th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/mehrangarh.jpg"
-                    alt="Mehrangarh Fort"
-                    onerror="this.src='https://images.unsplash.com/photo-1602643163986-6f2d9c8f4d9f?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>FORT • RAJASTHAN</span>
-
-                <h3>Mehrangarh Fort</h3>
-
-                <p>
-                    Rising above Jodhpur, this massive fort contains
-                    palaces, courtyards and finely decorated interiors
-                    built over centuries.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="temple"
-            data-name="Brihadisvara Temple"
-            data-place="Tamil Nadu"
-            data-period="11th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/brihadisvara.jpg"
-                    alt="Brihadisvara Temple"
-                    onerror="this.src='https://images.unsplash.com/photo-1600100397608-f010e26f31c5?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>TEMPLE • TAMIL NADU</span>
-
-                <h3>Brihadisvara Temple</h3>
-
-                <p>
-                    Built under the Chola dynasty, this monumental temple
-                    is celebrated for its towering vimana and remarkable
-                    stone engineering.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="ancient"
-            data-name="Ajanta Caves"
-            data-place="Maharashtra"
-            data-period="2nd Century BCE – 6th Century CE"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/ajanta.jpg"
-                    alt="Ajanta Caves"
-                    onerror="this.src='https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>CAVES • MAHARASHTRA</span>
-
-                <h3>Ajanta Caves</h3>
-
-                <p>
-                    Buddhist rock-cut caves famous for their murals,
-                    sculptures and extraordinary artistic tradition.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-
-        <!-- CARD -->
-        <article
-            class="architecture-card"
-            data-category="colonial"
-            data-name="Victoria Memorial"
-            data-place="Kolkata"
-            data-period="20th Century"
-        >
-
-            <div class="card-image">
-                <img
-                    src="images/architecture/victoria-memorial.jpg"
-                    alt="Victoria Memorial Kolkata"
-                    onerror="this.src='https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=1200&q=85'"
-                >
-            </div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-
-                <span>COLONIAL • KOLKATA</span>
-
-                <h3>Victoria Memorial</h3>
-
-                <p>
-                    A monumental marble building combining British
-                    architectural ideas with influences from Indian
-                    traditions.
-                </p>
-
-                <button class="explore-card">
-                    EXPLORE →
-                </button>
-
-            </div>
-
-        </article>
-
-    </div>
-
-    <p class="no-results" id="noResults">
-        No architectural sites found.
-    </p>
-
-</section>
-
-
-<!-- FEATURE -->
-<section class="feature section">
-
-    <div class="feature-image">
-        <img
-            src="images/architecture/taj-mahal.jpg"
-            alt="Indian architectural heritage"
-            onerror="this.src='https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1600&q=85'"
-        >
-    </div>
-
-    <div class="feature-overlay"></div>
-
-    <div class="feature-content">
-
-        <p class="eyebrow">THE ART OF BUILDING</p>
-
-        <h2>
-            STONE<br>
-            <span>REMEMBERS.</span>
-        </h2>
-
-        <p>
-            India's monuments are more than buildings. They preserve
-            stories of rulers, craftsmen, religions, scientific knowledge,
-            artistic traditions and the people who built them.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
 
     <div class="footer-brand">
+
         <span>☸</span>
+
         <h3>INDIAN GLORY</h3>
-        <p>THE STORY OF INDIA, PRESERVED FOR THE FUTURE</p>
+
+        <p>
+            HISTORY · HERITAGE · IDENTITY
+        </p>
+
     </div>
 
     <div class="footer-links">
+
         <a href="index.html">HOME</a>
+
         <a href="architecture.html">ARCHITECTURE</a>
+
         <a href="freedom-fighters.html">FREEDOM FIGHTERS</a>
+
         <a href="culture.html">CULTURE</a>
-        <a href="timeline.html">TIMELINE</a>
+
     </div>
 
     <div class="footer-bottom">
+
         <span>INDIAN GLORY</span>
-        <span>HERITAGE • HISTORY • CULTURE</span>
+
+        <span>BUILT WITH RESPECT FOR HISTORY</span>
+
     </div>
 
 </footer>
 
 
-<!-- MODAL -->
-<div class="modal" id="modal">
+<!-- =====================================================
+     MONUMENT MODAL
+===================================================== -->
 
-    <div class="modal-box">
+<div
+    class="architecture-modal"
+    id="architectureModal"
+    aria-hidden="true"
+>
 
-        <button class="modal-close" id="modalClose">×</button>
+    <div class="modal-inner">
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
 
         <div class="modal-image">
-            <img id="modalImage" src="" alt="">
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
         </div>
 
         <div class="modal-content">
 
-            <p id="modalCategory" class="eyebrow"></p>
+            <span
+                class="modal-location"
+                id="modalLocation"
+            ></span>
 
             <h2 id="modalTitle"></h2>
 
-            <p id="modalPeriod" class="modal-period"></p>
-
-            <div class="divider"></div>
-
-            <p id="modalDescription"></p>
-
-            <div class="modal-facts">
-                <div>
-                    <span>LOCATION</span>
-                    <strong id="modalPlace"></strong>
-                </div>
+            <div class="modal-meta">
 
                 <div>
                     <span>PERIOD</span>
-                    <strong id="modalPeriodTwo"></strong>
+                    <strong id="modalPeriod"></strong>
                 </div>
+
+                <div>
+                    <span>STYLE</span>
+                    <strong id="modalStyle"></strong>
+                </div>
+
             </div>
+
+            <div class="modal-divider"></div>
+
+            <h4>THE STORY</h4>
+
+            <p
+                id="modalDescription"
+                class="modal-description"
+            ></p>
 
         </div>
 
