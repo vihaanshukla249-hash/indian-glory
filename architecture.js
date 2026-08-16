@@ -9,10 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const searchInput = document.getElementById("architectureSearch");
+    const search = document.getElementById("architectureSearch");
 
+    const filterButtons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".architecture-card");
+
     const noResults = document.getElementById("noResults");
 
     const modal = document.getElementById("architectureModal");
@@ -53,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuToggle.addEventListener("click", () => {
 
-            const isOpen =
-                navLinks.classList.toggle("open");
+            const isOpen = navLinks.classList.toggle("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
@@ -88,12 +88,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function filterCards() {
 
-        const query =
-            searchInput
-                ? searchInput.value.toLowerCase().trim()
-                : "";
+        const query = search
+            ? search.value.toLowerCase().trim()
+            : "";
 
         let visibleCards = 0;
+
 
         cards.forEach(card => {
 
@@ -112,25 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const style =
                 (card.dataset.style || "").toLowerCase();
 
-            const description =
-                (card.dataset.description || "").toLowerCase();
-
-
-            /*
-             * Category matching
-             *
-             * Some cards have multiple categories:
-             * "fort medieval"
-             *
-             * Therefore we use includes()
-             * instead of ===
-             */
 
             const categoryMatch =
                 currentFilter === "all" ||
-                category
-                    .split(/\s+/)
-                    .includes(currentFilter);
+                category.split(" ").includes(currentFilter);
 
 
             const searchMatch =
@@ -138,17 +123,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 name.includes(query) ||
                 location.includes(query) ||
                 period.includes(query) ||
-                style.includes(query) ||
-                description.includes(query);
+                style.includes(query);
 
 
             if (categoryMatch && searchMatch) {
 
-                card.style.display = "block";
+                card.style.display = "";
 
                 requestAnimationFrame(() => {
+
                     card.style.opacity = "1";
                     card.style.transform = "";
+
                 });
 
                 visibleCards++;
@@ -173,9 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (noResults) {
 
             noResults.style.display =
-                visibleCards === 0
-                    ? "block"
-                    : "none";
+                visibleCards === 0 ? "block" : "none";
 
         }
 
@@ -210,96 +194,121 @@ document.addEventListener("DOMContentLoaded", () => {
        SEARCH
     ===================================================== */
 
-    if (searchInput) {
+    if (search) {
 
-        searchInput.addEventListener(
-            "input",
-            filterCards
-        );
+        search.addEventListener("input", () => {
+            filterCards();
+        });
 
     }
 
 
     /* =====================================================
        OPEN MONUMENT POPUP
+       CLICKING ANYWHERE ON CARD
     ===================================================== */
 
-    function openModal(card) {
+    cards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            openMonumentModal(card);
+
+        });
+
+    });
+
+
+    function openMonumentModal(card) {
 
         if (!modal) return;
 
 
-        const image =
-            card.querySelector(".card-image img");
+        /* ---------------------------------------------
+           GET DATA DIRECTLY FROM THE CARD
+        --------------------------------------------- */
+
+        const image = card.querySelector(".card-image img");
 
 
-        /* IMAGE */
+        const title =
+            card.dataset.name ||
+            card.querySelector("h3")?.textContent.trim() ||
+            "Indian Monument";
+
+
+        const location =
+            card.dataset.location ||
+            card.querySelector(".card-content > span")
+                ?.textContent.trim() ||
+            "";
+
+
+        const period =
+            card.dataset.period ||
+            "Historical period not available";
+
+
+        const style =
+            card.dataset.style ||
+            "Indian Architecture";
+
+
+        const description =
+            card.dataset.description ||
+            card.querySelector(".card-content p")
+                ?.textContent.trim() ||
+            "Information about this monument is not available.";
+
+
+        /* ---------------------------------------------
+           IMAGE
+           
+           IMPORTANT:
+           We use ONLY the image already inside
+           this exact card.
+
+           No random online fallback.
+        --------------------------------------------- */
 
         if (image && modalImage) {
 
-            modalImage.src = image.src;
+            modalImage.src = image.currentSrc || image.src;
 
             modalImage.alt =
-                image.alt ||
-                card.dataset.name ||
-                "Indian monument";
+                image.alt || title;
 
         }
 
 
-        /* LOCATION */
+        /* ---------------------------------------------
+           POPULATE MODAL
+        --------------------------------------------- */
 
         if (modalLocation) {
-
-            modalLocation.textContent =
-                card.dataset.location || "";
-
+            modalLocation.textContent = location;
         }
-
-
-        /* TITLE */
 
         if (modalTitle) {
-
-            modalTitle.textContent =
-                card.dataset.name || "";
-
+            modalTitle.textContent = title;
         }
-
-
-        /* PERIOD */
 
         if (modalPeriod) {
-
-            modalPeriod.textContent =
-                card.dataset.period || "";
-
+            modalPeriod.textContent = period;
         }
-
-
-        /* STYLE */
 
         if (modalStyle) {
-
-            modalStyle.textContent =
-                card.dataset.style || "";
-
+            modalStyle.textContent = style;
         }
-
-
-        /* DESCRIPTION */
 
         if (modalDescription) {
-
-            modalDescription.textContent =
-                card.dataset.description ||
-                card.querySelector(".card-content p")?.textContent ||
-                "";
-
+            modalDescription.textContent = description;
         }
 
 
-        /* SHOW */
+        /* ---------------------------------------------
+           SHOW MODAL
+        --------------------------------------------- */
 
         modal.classList.add("active");
 
@@ -314,37 +323,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       CARD CLICK
-    ===================================================== */
-
-    cards.forEach(card => {
-
-        card.addEventListener("click", event => {
-
-            /*
-             * Any click on the card opens the popup.
-             *
-             * This includes:
-             * - image
-             * - title
-             * - description
-             * - VIEW STORY button
-             */
-
-            event.preventDefault();
-
-            openModal(card);
-
-        });
-
-    });
-
-
-    /* =====================================================
        CLOSE POPUP
     ===================================================== */
 
-    function closeModal() {
+    function closeMonumentModal() {
 
         if (!modal) return;
 
@@ -360,26 +342,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* CLOSE BUTTON */
-
     if (modalClose) {
 
         modalClose.addEventListener(
             "click",
-            closeModal
+            closeMonumentModal
         );
 
     }
 
 
-    /* CLICK OUTSIDE POPUP */
+    /* Click outside popup */
 
     if (modal) {
 
         modal.addEventListener("click", event => {
 
             if (event.target === modal) {
-                closeModal();
+
+                closeMonumentModal();
+
             }
 
         });
@@ -387,12 +369,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ESC KEY */
+    /* ESC key */
 
     document.addEventListener("keydown", event => {
 
         if (event.key === "Escape") {
-            closeModal();
+
+            closeMonumentModal();
+
         }
 
     });
@@ -404,66 +388,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
 
-        card.addEventListener(
-            "mousemove",
-            event => {
+        card.addEventListener("mousemove", event => {
 
-                if (window.innerWidth <= 800) return;
-
-                /*
-                 * Don't move cards while popup is open.
-                 */
-
-                if (
-                    modal &&
-                    modal.classList.contains("active")
-                ) {
-                    return;
-                }
+            if (window.innerWidth <= 800) return;
 
 
-                const rect =
-                    card.getBoundingClientRect();
+            const rect =
+                card.getBoundingClientRect();
 
 
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
+            const x =
+                event.clientX - rect.left;
 
 
-                const rotateY =
-                    ((x / rect.width) - 0.5) * 5;
-
-                const rotateX =
-                    ((y / rect.height) - 0.5) * -5;
+            const y =
+                event.clientY - rect.top;
 
 
-                card.style.transform =
-                    `perspective(1000px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-8px)`;
-
-            }
-        );
+            const rotateY =
+                ((x / rect.width) - 0.5) * 5;
 
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
+            const rotateX =
+                ((y / rect.height) - 0.5) * -5;
 
-                card.style.transform = "";
 
-            }
-        );
+            card.style.transform =
+                `perspective(1000px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-8px)`;
+
+        });
+
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "";
+
+        });
 
     });
 
 
     /* =====================================================
-       SCROLL NAVIGATION
+       NAVIGATION SCROLL EFFECT
     ===================================================== */
 
     const siteNav =
@@ -474,6 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!siteNav) return;
 
+
         siteNav.classList.toggle(
             "scrolled",
             window.scrollY > 40
@@ -483,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       REVEAL ANIMATION
+       REVEAL ANIMATIONS
     ===================================================== */
 
     const revealElements =
@@ -504,11 +474,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             entry.isIntersecting
                         ) {
 
-                            entry.target.style.opacity =
-                                "1";
-
-                            entry.target.style.transform =
-                                "translateY(0)";
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
                             observer.unobserve(
                                 entry.target
@@ -527,19 +495,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
         revealElements.forEach(element => {
 
-            element.style.opacity = "0";
-
-            element.style.transform =
-                "translateY(35px)";
-
-            element.style.transition =
-                "opacity .8s ease, transform .8s ease";
-
             observer.observe(element);
 
         });
 
+    } else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        });
+
     }
+
+
+    /* =====================================================
+       IMAGE ERROR HANDLING
+       
+       DO NOT SUBSTITUTE A RANDOM IMAGE.
+       If an image is missing, show a clean placeholder.
+    ===================================================== */
+
+    cards.forEach(card => {
+
+        const image =
+            card.querySelector(".card-image img");
+
+
+        if (!image) return;
+
+
+        image.addEventListener(
+            "error",
+            () => {
+
+                image.style.display = "none";
+
+                const imageContainer =
+                    image.closest(".card-image");
+
+
+                if (imageContainer) {
+
+                    imageContainer.classList.add(
+                        "image-missing"
+                    );
+
+                }
+
+            }
+        );
+
+    });
 
 
     /* =====================================================
