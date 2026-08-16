@@ -929,3 +929,36 @@ menuToggle?.addEventListener("click", () => {
     navLinks?.classList.toggle("open");
     menuToggle.classList.toggle("active");
 });
+
+
+```javascript
+/* =====================================================
+   WORLD → INDIA CINEMATIC INTRO
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const intro = document.getElementById("indiaIntro");
+    const skip = document.querySelector(".intro-skip");
+
+    if (!intro) return;
+
+    document.body.classList.add("intro-active");
+
+    const finishIntro = () => {
+        if (intro.classList.contains("finished")) return;
+
+        intro.classList.add("finished");
+        document.body.classList.remove("intro-active");
+
+        setTimeout(() => {
+            intro.remove();
+        }, 1300);
+    };
+
+    skip?.addEventListener("click", finishIntro);
+
+    setTimeout(finishIntro, 8000);
+
+});
+```
