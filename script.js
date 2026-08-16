@@ -962,3 +962,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 ```
+
+/* =====================================================
+   WORLD → INDIA INTRO
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const intro = document.getElementById("indiaIntro");
+    const skip = document.getElementById("skipIntro");
+
+    if (!intro) return;
+
+    document.body.style.overflow = "hidden";
+
+    function closeIntro() {
+
+        if (!intro) return;
+
+        intro.classList.add("hide");
+
+        document.body.style.overflow = "";
+
+        setTimeout(() => {
+            intro.remove();
+        }, 1300);
+    }
+
+    skip?.addEventListener("click", closeIntro);
+
+    setTimeout(closeIntro, 9000);
+
+});
