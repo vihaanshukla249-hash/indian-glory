@@ -197,7 +197,8 @@ button {
    NAVIGATION
 ========================================================= */
 
-.site-nav {
+
+   .site-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -323,7 +324,6 @@ button {
     margin: 4px auto;
     background: white;
 }
-
 
 /* =========================================================
    HERO
