@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Indian Architecture — Indian Glory</title>
+
+    <meta
+        name="description"
+        content="Explore the architectural heritage of India from ancient civilizations to modern monuments."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="architecture.css">
+</head>
+
+<body>
+
+    <!-- LOADER -->
+
+    <div id="pageLoader">
+        <div class="loader-chakra">☸</div>
+        <p>INDIAN GLORY</p>
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="site-nav">
+
+        <a href="index.html" class="nav-logo">
+            <span>INDIAN GLORY</span>
+            <small>THE STORY OF INDIA</small>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">HOME</a>
+            <a href="architecture.html" class="active">ARCHITECTURE</a>
+            <a href="freedom-fighters.html">FREEDOM FIGHTERS</a>
+            <a href="index.html#timeline">TIMELINE</a>
+            <a href="index.html#culture">CULTURE</a>
+
+        </div>
+
+        <button class="menu-toggle" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="architecture-hero">
+
+        <div class="hero-grid"></div>
+
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-kicker">
+                <span></span>
+                BUILT THROUGH THE AGES
+                <span></span>
+            </div>
+
+            <p class="hero-date">2500 BCE — PRESENT</p>
+
+            <h1>
+                <span>INDIAN</span>
+                <strong>ARCHITECTURE</strong>
+                <span>ETERNAL</span>
+            </h1>
+
+            <p class="hero-description">
+                From the carefully planned cities of the Indus Valley
+                to monumental temples, Mughal masterpieces and modern
+                landmarks, India's architecture reflects thousands of
+                years of engineering, art, religion and culture.
+            </p>
+
+            <a href="#explore" class="hero-button">
+                EXPLORE THE MONUMENTS
+                <strong>↓</strong>
+            </a>
+
+        </div>
+
+        <div class="hero-bottom">
+            <span>01</span>
+            <div class="hero-line"></div>
+            <p>SCROLL TO EXPLORE</p>
+        </div>
+
+    </header>
+
+
+    <!-- INTRO -->
+
+    <section class="intro-section">
+
+        <div>
+            <p class="eyebrow">THE BUILT HERITAGE</p>
+            <span class="intro-number">01 / 05</span>
+        </div>
+
+        <div class="intro-content">
+
+            <h2>
+                STONES THAT
+                <span>REMEMBER.</span>
+            </h2>
+
+            <p class="intro-large">
+                Indian architecture is not a single style.
+                It is a living timeline shaped by civilizations,
+                dynasties, religions, geography and technology.
+            </p>
+
+            <p class="intro-small">
+                Every monument tells a story — of the people who
+                built it, the society that surrounded it and the
+                ideas that shaped India at that moment in history.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORE -->
+
+    <main id="explore" class="explore-section">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">EXPLORE THE HERITAGE</p>
+
+            <h2>
+                INDIA
+                <span>BUILT.</span>
+            </h2>
+
+            <p>
+                Explore major examples of Indian architecture across
+                different periods, regions and architectural traditions.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="controls">
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input
+                    type="search"
+                    id="architectureSearch"
+                    placeholder="Search monuments, places or styles..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="filter-buttons">
+
+                <button class="filter active" data-filter="all">
+                    ALL
+                </button>
+
+                <button class="filter" data-filter="ancient">
+                    ANCIENT
+                </button>
+
+                <button class="filter" data-filter="temple">
+                    TEMPLES
+                </button>
+
+                <button class="filter" data-filter="islamic">
+                    INDO-ISLAMIC
+                </button>
+
+                <button class="filter" data-filter="colonial">
+                    COLONIAL
+                </button>
+
+                <button class="filter" data-filter="modern">
+                    MODERN
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD GRID -->
+
+        <div id="architectureGrid" class="architecture-grid"></div>
+
+        <p id="emptyState" class="empty-state">
+            No monuments found.
+        </p>
+
+    </main>
+
+
+    <!-- TIMELINE -->
+
+    <section class="architecture-timeline">
+
+        <div class="section-heading compact">
+
+            <p class="eyebrow">A CONTINUOUS STORY</p>
+
+            <h2>
+                4500 YEARS OF
+                <span>DESIGN.</span>
+            </h2>
+
+        </div>
+
+        <div class="era-line">
+
+            <div class="era">
+                <strong>2500 BCE</strong>
+                <span>INDUS VALLEY</span>
+                <p>Urban planning, drainage and brick construction.</p>
+            </div>
+
+            <div class="era">
+                <strong>300 BCE</strong>
+                <span>MAURYAN</span>
+                <p>Stone architecture and Buddhist monuments.</p>
+            </div>
+
+            <div class="era">
+                <strong>600 CE</strong>
+                <span>TEMPLE AGE</span>
+                <p>Distinct regional temple traditions emerge.</p>
+            </div>
+
+            <div class="era">
+                <strong>1200 CE</strong>
+                <span>INDO-ISLAMIC</span>
+                <p>Arches, domes and new structural traditions.</p>
+            </div>
+
+            <div class="era">
+                <strong>1500 CE</strong>
+                <span>MUGHAL</span>
+                <p>Monumental symmetry, gardens and marble work.</p>
+            </div>
+
+            <div class="era">
+                <strong>1800 CE</strong>
+                <span>COLONIAL</span>
+                <p>European influences merge with Indian traditions.</p>
+            </div>
+
+            <div class="era">
+                <strong>1947+</strong>
+                <span>MODERN INDIA</span>
+                <p>New materials meet Indian identity.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final-section">
+
+        <div class="final-content">
+
+            <div class="chakra-symbol">☸</div>
+
+            <p>ARCHITECTURE IS MEMORY</p>
+
+            <h2>BHARAT</h2>
+
+            <span>BUILT ACROSS MILLENNIA</span>
+
+            <div class="tricolour-line">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MODAL -->
+
+    <div id="architectureModal" class="architecture-modal">
+
+        <div class="modal-inner">
+
+            <button
+                id="modalClose"
+                class="modal-close"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+
+            <div class="modal-content">
+
+                <span id="modalPeriod" class="modal-period"></span>
+
+                <h2 id="modalTitle"></h2>
+
+                <p id="modalLocation" class="modal-location"></p>
+
+                <div class="modal-divider"></div>
+
+                <h4>ABOUT THE MONUMENT</h4>
+
+                <p id="modalDescription" class="modal-description"></p>
+
+                <div class="modal-facts">
+
+                    <div>
+                        <span>STYLE</span>
+                        <strong id="modalStyle"></strong>
+                    </div>
+
+                    <div>
+                        <span>LOCATION</span>
+                        <strong id="modalPlace"></strong>
+                    </div>
+
+                    <div>
+                        <span>PERIOD</span>
+                        <strong id="modalEra"></strong>
+                    </div>
+
+                </div>
+
+                <div class="modal-divider"></div>
+
+                <p id="modalSignificance" class="modal-significance"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+
+            <span>☸</span>
+
+            <h3>INDIAN GLORY</h3>
+
+            <p>
+                PRESERVING THE STORY OF INDIA
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">HOME</a>
+            <a href="architecture.html">ARCHITECTURE</a>
+            <a href="freedom-fighters.html">FREEDOM FIGHTERS</a>
+            <a href="index.html#timeline">TIMELINE</a>
+            <a href="index.html#culture">CULTURE</a>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>INDIAN GLORY</span>
+
+            <span>BHARAT • HERITAGE • HISTORY</span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="architecture.js"></script>
+
+</body>
+</html>
