@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const loader = document.getElementById("pageLoader");
+
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
-    const search = document.getElementById("architectureSearch");
     const filterButtons = document.querySelectorAll(".filter-btn");
+    const searchInput = document.getElementById("architectureSearch");
+
     const cards = document.querySelectorAll(".architecture-card");
     const noResults = document.getElementById("noResults");
 
@@ -51,7 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuToggle.addEventListener("click", () => {
 
-            const isOpen = navLinks.classList.toggle("open");
+            const isOpen =
+                navLinks.classList.toggle("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
@@ -80,16 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       FILTER + SEARCH
+       SEARCH + FILTER
     ===================================================== */
 
     function filterCards() {
 
-        const query = search
-            ? search.value.toLowerCase().trim()
-            : "";
+        const query =
+            searchInput
+                ? searchInput.value.toLowerCase().trim()
+                : "";
 
-        let visible = 0;
+        let visibleCards = 0;
 
         cards.forEach(card => {
 
@@ -112,9 +116,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 (card.dataset.description || "").toLowerCase();
 
 
+            /*
+             * Category matching
+             *
+             * Some cards have multiple categories:
+             * "fort medieval"
+             *
+             * Therefore we use includes()
+             * instead of ===
+             */
+
             const categoryMatch =
                 currentFilter === "all" ||
-                category.split(" ").includes(currentFilter);
+                category
+                    .split(/\s+/)
+                    .includes(currentFilter);
 
 
             const searchMatch =
@@ -128,13 +144,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (categoryMatch && searchMatch) {
 
-                card.classList.remove("hidden-card");
+                card.style.display = "block";
 
-                visible++;
+                requestAnimationFrame(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "";
+                });
+
+                visibleCards++;
 
             } else {
 
-                card.classList.add("hidden-card");
+                card.style.opacity = "0";
+
+                setTimeout(() => {
+
+                    if (card.style.opacity === "0") {
+                        card.style.display = "none";
+                    }
+
+                }, 250);
 
             }
 
@@ -144,19 +173,25 @@ document.addEventListener("DOMContentLoaded", () => {
         if (noResults) {
 
             noResults.style.display =
-                visible === 0 ? "block" : "none";
+                visibleCards === 0
+                    ? "block"
+                    : "none";
 
         }
 
     }
 
 
+    /* =====================================================
+       FILTER BUTTONS
+    ===================================================== */
+
     filterButtons.forEach(button => {
 
         button.addEventListener("click", () => {
 
-            filterButtons.forEach(item => {
-                item.classList.remove("active");
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
             });
 
             button.classList.add("active");
@@ -171,71 +206,143 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    if (search) {
-        search.addEventListener("input", filterCards);
+    /* =====================================================
+       SEARCH
+    ===================================================== */
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            filterCards
+        );
+
     }
 
 
     /* =====================================================
-       MONUMENT MODAL
+       OPEN MONUMENT POPUP
     ===================================================== */
 
     function openModal(card) {
 
-        const image = card.querySelector(".card-image img");
+        if (!modal) return;
+
+
+        const image =
+            card.querySelector(".card-image img");
+
+
+        /* IMAGE */
 
         if (image && modalImage) {
 
-            modalImage.src =
-                card.dataset.image || image.src;
+            modalImage.src = image.src;
 
             modalImage.alt =
-                image.alt || card.dataset.name;
+                image.alt ||
+                card.dataset.name ||
+                "Indian monument";
 
         }
 
+
+        /* LOCATION */
 
         if (modalLocation) {
+
             modalLocation.textContent =
                 card.dataset.location || "";
+
         }
 
+
+        /* TITLE */
 
         if (modalTitle) {
+
             modalTitle.textContent =
                 card.dataset.name || "";
+
         }
 
+
+        /* PERIOD */
 
         if (modalPeriod) {
+
             modalPeriod.textContent =
                 card.dataset.period || "";
+
         }
 
+
+        /* STYLE */
 
         if (modalStyle) {
+
             modalStyle.textContent =
                 card.dataset.style || "";
+
         }
 
+
+        /* DESCRIPTION */
 
         if (modalDescription) {
+
             modalDescription.textContent =
-                card.dataset.description || "";
-        }
-
-
-        if (modal) {
-
-            modal.classList.add("active");
-            modal.setAttribute("aria-hidden", "false");
-
-            document.body.style.overflow = "hidden";
+                card.dataset.description ||
+                card.querySelector(".card-content p")?.textContent ||
+                "";
 
         }
+
+
+        /* SHOW */
+
+        modal.classList.add("active");
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow = "hidden";
 
     }
 
+
+    /* =====================================================
+       CARD CLICK
+    ===================================================== */
+
+    cards.forEach(card => {
+
+        card.addEventListener("click", event => {
+
+            /*
+             * Any click on the card opens the popup.
+             *
+             * This includes:
+             * - image
+             * - title
+             * - description
+             * - VIEW STORY button
+             */
+
+            event.preventDefault();
+
+            openModal(card);
+
+        });
+
+    });
+
+
+    /* =====================================================
+       CLOSE POPUP
+    ===================================================== */
 
     function closeModal() {
 
@@ -243,40 +350,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modal.classList.remove("active");
 
-        modal.setAttribute("aria-hidden", "true");
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
         document.body.style.overflow = "";
 
     }
 
 
-    cards.forEach(card => {
-
-        const button =
-            card.querySelector(".card-button");
-
-
-        card.addEventListener("click", () => {
-
-            openModal(card);
-
-        });
-
-
-        if (button) {
-
-            button.addEventListener("click", event => {
-
-                event.stopPropagation();
-
-                openModal(card);
-
-            });
-
-        }
-
-    });
-
+    /* CLOSE BUTTON */
 
     if (modalClose) {
 
@@ -287,6 +371,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    /* CLICK OUTSIDE POPUP */
 
     if (modal) {
 
@@ -300,6 +386,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    /* ESC KEY */
 
     document.addEventListener("keydown", event => {
 
@@ -316,45 +404,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
 
-        card.addEventListener("mousemove", event => {
+        card.addEventListener(
+            "mousemove",
+            event => {
 
-            if (window.innerWidth <= 800) return;
+                if (window.innerWidth <= 800) return;
 
-            const rect =
-                card.getBoundingClientRect();
+                /*
+                 * Don't move cards while popup is open.
+                 */
 
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const rotateY =
-                ((x / rect.width) - 0.5) * 8;
-
-            const rotateX =
-                ((y / rect.height) - 0.5) * -8;
-
-            card.style.transform =
-                `perspective(1200px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-10px)`;
-
-        });
+                if (
+                    modal &&
+                    modal.classList.contains("active")
+                ) {
+                    return;
+                }
 
 
-        card.addEventListener("mouseleave", () => {
+                const rect =
+                    card.getBoundingClientRect();
 
-            card.style.transform = "";
 
-        });
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+
+                const rotateY =
+                    ((x / rect.width) - 0.5) * 5;
+
+                const rotateX =
+                    ((y / rect.height) - 0.5) * -5;
+
+
+                card.style.transform =
+                    `perspective(1000px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-8px)`;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform = "";
+
+            }
+        );
 
     });
 
 
     /* =====================================================
-       NAVIGATION SCROLL EFFECT
+       SCROLL NAVIGATION
     ===================================================== */
 
     const siteNav =
@@ -378,69 +487,59 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "revealed"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
+        document.querySelectorAll(
+            ".reveal"
         );
 
 
-    revealElements.forEach(element => {
+    if ("IntersectionObserver" in window) {
 
-        observer.observe(element);
+        const observer =
+            new IntersectionObserver(
+                entries => {
 
-    });
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.style.opacity =
+                                "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
 
-    /* =====================================================
-       PARALLAX HERO
-    ===================================================== */
+        revealElements.forEach(element => {
 
-    const hero =
-        document.querySelector(".architecture-hero");
+            element.style.opacity = "0";
 
-    const heroBackground =
-        document.querySelector(".hero-background");
+            element.style.transform =
+                "translateY(35px)";
 
+            element.style.transition =
+                "opacity .8s ease, transform .8s ease";
 
-    window.addEventListener("scroll", () => {
+            observer.observe(element);
 
-        if (!hero || !heroBackground) return;
+        });
 
-        const scroll =
-            window.scrollY;
-
-        if (scroll < window.innerHeight) {
-
-            heroBackground.style.transform =
-                `translateY(${scroll * 0.18}px) scale(1.08)`;
-
-        }
-
-    });
+    }
 
 
     /* =====================================================
