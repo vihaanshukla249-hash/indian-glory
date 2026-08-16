@@ -28,15 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
     /* LOADER */
 
     window.addEventListener("load", () => {
-
         setTimeout(() => {
-
             if (loader) {
                 loader.classList.add("hidden");
             }
-
-        }, 500);
-
+        }, 700);
     });
 
 
@@ -46,11 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         menuToggle.addEventListener("click", () => {
 
-            const isOpen = navLinks.classList.toggle("open");
+            const open = navLinks.classList.toggle("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                isOpen ? "true" : "false"
+                open ? "true" : "false"
             );
 
         });
@@ -81,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ? search.value.toLowerCase().trim()
             : "";
 
-        let visibleCards = 0;
+        let visible = 0;
 
         cards.forEach(card => {
 
@@ -100,11 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const style =
                 (card.dataset.style || "").toLowerCase();
 
-
             const categoryMatch =
                 currentFilter === "all" ||
                 category.split(" ").includes(currentFilter);
-
 
             const searchMatch =
                 !query ||
@@ -113,16 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 period.includes(query) ||
                 style.includes(query);
 
-
             if (categoryMatch && searchMatch) {
 
                 card.style.display = "";
+                card.style.opacity = "1";
 
-                requestAnimationFrame(() => {
-                    card.style.opacity = "1";
-                });
-
-                visibleCards++;
+                visible++;
 
             } else {
 
@@ -134,18 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         card.style.display = "none";
                     }
 
-                }, 250);
+                }, 300);
 
             }
 
         });
 
-
         if (noResults) {
-
             noResults.style.display =
-                visibleCards === 0 ? "block" : "none";
-
+                visible === 0 ? "block" : "none";
         }
 
     }
@@ -188,13 +175,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.addEventListener("click", event => {
 
-            if (
-                event.target.closest(".card-button") ||
-                event.target.closest(".card-image") ||
-                event.target.closest(".card-content")
-            ) {
-                openMonumentModal(card);
+            if (event.target.closest(".card-button")) {
+                event.preventDefault();
             }
+
+            openMonumentModal(card);
 
         });
 
@@ -207,53 +192,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!modal) return;
 
-
         const image =
             card.querySelector(".card-image img");
 
-
         const title =
             card.dataset.name ||
-            card.querySelector("h3")?.textContent.trim() ||
             "Indian Monument";
-
 
         const location =
             card.dataset.location ||
             "";
 
-
         const period =
             card.dataset.period ||
-            "Historical period not available";
-
+            "";
 
         const style =
             card.dataset.style ||
-            "Indian Architecture";
-
+            "";
 
         const description =
             card.dataset.description ||
-            card.querySelector(".card-content p")
-                ?.textContent.trim() ||
-            "Information about this monument is not available.";
+            "";
 
 
-        /*
-         * IMPORTANT:
-         * The popup uses ONLY the image
-         * from the card that was clicked.
-         */
+        /* USE ONLY THE IMAGE FROM THIS CARD */
 
         if (image && modalImage) {
 
-            modalImage.src =
-                image.currentSrc ||
-                image.src;
+            modalImage.removeAttribute("src");
 
-            modalImage.alt =
-                title;
+            modalImage.src =
+                image.getAttribute("src");
+
+            modalImage.alt = title;
 
         }
 
@@ -319,6 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* CLICK OUTSIDE */
+
     if (modal) {
 
         modal.addEventListener("click", event => {
@@ -332,6 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* ESC */
+
     document.addEventListener("keydown", event => {
 
         if (event.key === "Escape") {
@@ -341,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* 3D CARD EFFECT */
+    /* 3D EFFECT */
 
     cards.forEach(card => {
 
@@ -387,7 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const siteNav =
         document.querySelector(".site-nav");
 
-
     window.addEventListener("scroll", () => {
 
         if (!siteNav) return;
@@ -405,7 +380,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealElements =
         document.querySelectorAll(".reveal");
 
-
     if ("IntersectionObserver" in window) {
 
         const observer =
@@ -417,7 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (entry.isIntersecting) {
 
                             entry.target.classList.add(
-                                "visible"
+                                "revealed"
                             );
 
                             observer.unobserve(
@@ -434,7 +408,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
-
         revealElements.forEach(element => {
             observer.observe(element);
         });
@@ -442,37 +415,30 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
 
         revealElements.forEach(element => {
-            element.classList.add("visible");
+            element.classList.add("revealed");
         });
 
     }
 
 
-    /* IMAGE ERROR HANDLING */
+    /* IMAGE ERROR */
 
     cards.forEach(card => {
 
         const image =
             card.querySelector(".card-image img");
 
-
         if (!image) return;
 
-
         image.addEventListener("error", () => {
-
-            image.style.display = "none";
 
             const container =
                 image.closest(".card-image");
 
+            image.removeAttribute("src");
 
             if (container) {
-
-                container.classList.add(
-                    "image-missing"
-                );
-
+                container.classList.add("image-missing");
             }
 
         });
