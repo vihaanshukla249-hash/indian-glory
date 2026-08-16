@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
-
     const loader = document.getElementById("pageLoader");
 
     const menuToggle = document.querySelector(".menu-toggle");
@@ -29,9 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentFilter = "all";
 
 
-    /* =====================================================
-       LOADER
-    ===================================================== */
+    /* LOADER */
 
     window.addEventListener("load", () => {
 
@@ -41,14 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 loader.classList.add("hidden");
             }
 
-        }, 700);
+        }, 500);
 
     });
 
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+    /* MOBILE MENU */
 
     if (menuToggle && navLinks) {
 
@@ -62,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         });
-
 
         navLinks.querySelectorAll("a").forEach(link => {
 
@@ -82,9 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       SEARCH + FILTER
-    ===================================================== */
+    /* SEARCH + FILTER */
 
     function filterCards() {
 
@@ -93,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
             : "";
 
         let visibleCards = 0;
-
 
         cards.forEach(card => {
 
@@ -131,10 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.style.display = "";
 
                 requestAnimationFrame(() => {
-
                     card.style.opacity = "1";
-                    card.style.transform = "";
-
                 });
 
                 visibleCards++;
@@ -166,9 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       FILTER BUTTONS
-    ===================================================== */
+    /* FILTER BUTTONS */
 
     filterButtons.forEach(button => {
 
@@ -190,45 +173,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       SEARCH
-    ===================================================== */
+    /* SEARCH */
 
     if (search) {
 
-        search.addEventListener("input", () => {
-            filterCards();
-        });
+        search.addEventListener("input", filterCards);
 
     }
 
 
-    /* =====================================================
-       OPEN MONUMENT POPUP
-       CLICKING ANYWHERE ON CARD
-    ===================================================== */
+    /* CARD CLICK */
 
     cards.forEach(card => {
 
-        card.addEventListener("click", () => {
+        card.addEventListener("click", event => {
 
-            openMonumentModal(card);
+            if (
+                event.target.closest(".card-button") ||
+                event.target.closest(".card-image") ||
+                event.target.closest(".card-content")
+            ) {
+                openMonumentModal(card);
+            }
 
         });
 
     });
 
 
+    /* OPEN MODAL */
+
     function openMonumentModal(card) {
 
         if (!modal) return;
 
 
-        /* ---------------------------------------------
-           GET DATA DIRECTLY FROM THE CARD
-        --------------------------------------------- */
-
-        const image = card.querySelector(".card-image img");
+        const image =
+            card.querySelector(".card-image img");
 
 
         const title =
@@ -239,8 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const location =
             card.dataset.location ||
-            card.querySelector(".card-content > span")
-                ?.textContent.trim() ||
             "";
 
 
@@ -261,29 +240,23 @@ document.addEventListener("DOMContentLoaded", () => {
             "Information about this monument is not available.";
 
 
-        /* ---------------------------------------------
-           IMAGE
-           
-           IMPORTANT:
-           We use ONLY the image already inside
-           this exact card.
-
-           No random online fallback.
-        --------------------------------------------- */
+        /*
+         * IMPORTANT:
+         * The popup uses ONLY the image
+         * from the card that was clicked.
+         */
 
         if (image && modalImage) {
 
-            modalImage.src = image.currentSrc || image.src;
+            modalImage.src =
+                image.currentSrc ||
+                image.src;
 
             modalImage.alt =
-                image.alt || title;
+                title;
 
         }
 
-
-        /* ---------------------------------------------
-           POPULATE MODAL
-        --------------------------------------------- */
 
         if (modalLocation) {
             modalLocation.textContent = location;
@@ -306,10 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* ---------------------------------------------
-           SHOW MODAL
-        --------------------------------------------- */
-
         modal.classList.add("active");
 
         modal.setAttribute(
@@ -322,9 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       CLOSE POPUP
-    ===================================================== */
+    /* CLOSE MODAL */
 
     function closeMonumentModal() {
 
@@ -352,16 +319,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* Click outside popup */
-
     if (modal) {
 
         modal.addEventListener("click", event => {
 
             if (event.target === modal) {
-
                 closeMonumentModal();
-
             }
 
         });
@@ -369,22 +332,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ESC key */
-
     document.addEventListener("keydown", event => {
 
         if (event.key === "Escape") {
-
             closeMonumentModal();
-
         }
 
     });
 
 
-    /* =====================================================
-       3D CARD MOVEMENT
-    ===================================================== */
+    /* 3D CARD EFFECT */
 
     cards.forEach(card => {
 
@@ -392,26 +349,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (window.innerWidth <= 800) return;
 
-
             const rect =
                 card.getBoundingClientRect();
-
 
             const x =
                 event.clientX - rect.left;
 
-
             const y =
                 event.clientY - rect.top;
-
 
             const rotateY =
                 ((x / rect.width) - 0.5) * 5;
 
-
             const rotateX =
                 ((y / rect.height) - 0.5) * -5;
-
 
             card.style.transform =
                 `perspective(1000px)
@@ -431,9 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       NAVIGATION SCROLL EFFECT
-    ===================================================== */
+    /* NAVIGATION SCROLL */
 
     const siteNav =
         document.querySelector(".site-nav");
@@ -443,7 +392,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!siteNav) return;
 
-
         siteNav.classList.toggle(
             "scrolled",
             window.scrollY > 40
@@ -452,14 +400,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       REVEAL ANIMATIONS
-    ===================================================== */
+    /* REVEAL ANIMATION */
 
     const revealElements =
-        document.querySelectorAll(
-            ".reveal"
-        );
+        document.querySelectorAll(".reveal");
 
 
     if ("IntersectionObserver" in window) {
@@ -470,9 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     entries.forEach(entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        if (entry.isIntersecting) {
 
                             entry.target.classList.add(
                                 "visible"
@@ -494,30 +436,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         revealElements.forEach(element => {
-
             observer.observe(element);
-
         });
 
     } else {
 
         revealElements.forEach(element => {
-
-            element.classList.add(
-                "visible"
-            );
-
+            element.classList.add("visible");
         });
 
     }
 
 
-    /* =====================================================
-       IMAGE ERROR HANDLING
-       
-       DO NOT SUBSTITUTE A RANDOM IMAGE.
-       If an image is missing, show a clean placeholder.
-    ===================================================== */
+    /* IMAGE ERROR HANDLING */
 
     cards.forEach(card => {
 
@@ -528,33 +459,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!image) return;
 
 
-        image.addEventListener(
-            "error",
-            () => {
+        image.addEventListener("error", () => {
 
-                image.style.display = "none";
+            image.style.display = "none";
 
-                const imageContainer =
-                    image.closest(".card-image");
+            const container =
+                image.closest(".card-image");
 
 
-                if (imageContainer) {
+            if (container) {
 
-                    imageContainer.classList.add(
-                        "image-missing"
-                    );
-
-                }
+                container.classList.add(
+                    "image-missing"
+                );
 
             }
-        );
+
+        });
 
     });
 
 
-    /* =====================================================
-       INITIAL FILTER
-    ===================================================== */
+    /* INITIAL FILTER */
 
     filterCards();
 
