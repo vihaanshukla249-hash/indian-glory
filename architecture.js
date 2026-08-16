@@ -1,181 +1,304 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const loader = document.getElementById("loader");
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    const filters = document.querySelectorAll(".filter");
-    const search = document.getElementById("search");
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const loader = document.getElementById("pageLoader");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    const search = document.getElementById("architectureSearch");
+    const filterButtons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".architecture-card");
     const noResults = document.getElementById("noResults");
 
-    const modal = document.getElementById("modal");
+    const modal = document.getElementById("architectureModal");
     const modalClose = document.getElementById("modalClose");
 
     const modalImage = document.getElementById("modalImage");
-    const modalCategory = document.getElementById("modalCategory");
+    const modalLocation = document.getElementById("modalLocation");
     const modalTitle = document.getElementById("modalTitle");
     const modalPeriod = document.getElementById("modalPeriod");
-    const modalPeriodTwo = document.getElementById("modalPeriodTwo");
-    const modalPlace = document.getElementById("modalPlace");
+    const modalStyle = document.getElementById("modalStyle");
     const modalDescription = document.getElementById("modalDescription");
 
     let currentFilter = "all";
 
 
-    /* LOADER */
+    /* =====================================================
+       LOADER
+    ===================================================== */
 
     window.addEventListener("load", () => {
+
         setTimeout(() => {
-            loader.classList.add("hidden");
-        }, 600);
+
+            if (loader) {
+                loader.classList.add("hidden");
+            }
+
+        }, 700);
+
     });
 
 
-    /* MOBILE MENU */
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
+    if (menuToggle && navLinks) {
 
-    navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("open");
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
         });
-    });
 
 
-    /* FILTER + SEARCH */
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       FILTER + SEARCH
+    ===================================================== */
 
     function filterCards() {
 
-        const query = search.value.toLowerCase().trim();
+        const query = search
+            ? search.value.toLowerCase().trim()
+            : "";
+
         let visible = 0;
 
         cards.forEach(card => {
 
-            const category = card.dataset.category;
-            const name = card.dataset.name.toLowerCase();
-            const place = card.dataset.place.toLowerCase();
-            const period = card.dataset.period.toLowerCase();
+            const category =
+                (card.dataset.category || "").toLowerCase();
+
+            const name =
+                (card.dataset.name || "").toLowerCase();
+
+            const location =
+                (card.dataset.location || "").toLowerCase();
+
+            const period =
+                (card.dataset.period || "").toLowerCase();
+
+            const style =
+                (card.dataset.style || "").toLowerCase();
+
+            const description =
+                (card.dataset.description || "").toLowerCase();
+
 
             const categoryMatch =
                 currentFilter === "all" ||
-                category === currentFilter;
+                category.split(" ").includes(currentFilter);
+
 
             const searchMatch =
                 !query ||
                 name.includes(query) ||
-                place.includes(query) ||
-                period.includes(query);
+                location.includes(query) ||
+                period.includes(query) ||
+                style.includes(query) ||
+                description.includes(query);
+
 
             if (categoryMatch && searchMatch) {
 
-                card.style.display = "block";
-
-                requestAnimationFrame(() => {
-                    card.style.opacity = "1";
-                });
+                card.classList.remove("hidden-card");
 
                 visible++;
 
             } else {
 
-                card.style.opacity = "0";
+                card.classList.add("hidden-card");
 
-                setTimeout(() => {
-                    if (card.style.opacity === "0") {
-                        card.style.display = "none";
-                    }
-                }, 250);
             }
+
         });
 
-        noResults.style.display =
-            visible === 0 ? "block" : "none";
+
+        if (noResults) {
+
+            noResults.style.display =
+                visible === 0 ? "block" : "none";
+
+        }
+
     }
 
 
-    filters.forEach(button => {
+    filterButtons.forEach(button => {
 
         button.addEventListener("click", () => {
 
-            filters.forEach(item =>
-                item.classList.remove("active")
-            );
+            filterButtons.forEach(item => {
+                item.classList.remove("active");
+            });
 
             button.classList.add("active");
 
-            currentFilter = button.dataset.filter;
+            currentFilter =
+                button.dataset.filter || "all";
 
             filterCards();
+
         });
 
     });
 
 
-    search.addEventListener("input", filterCards);
+    if (search) {
+        search.addEventListener("input", filterCards);
+    }
 
 
-    /* MODAL */
+    /* =====================================================
+       MONUMENT MODAL
+    ===================================================== */
 
-    cards.forEach(card => {
+    function openModal(card) {
 
-        card.addEventListener("click", event => {
+        const image = card.querySelector(".card-image img");
 
-            if (event.target.closest(".explore-card")) {
-                event.stopPropagation();
-            }
+        if (image && modalImage) {
 
-            const image = card.querySelector("img");
+            modalImage.src =
+                card.dataset.image || image.src;
 
-            modalImage.src = image.src;
-            modalImage.alt = image.alt;
+            modalImage.alt =
+                image.alt || card.dataset.name;
 
-            modalCategory.textContent =
-                card.querySelector(".card-content > span").textContent;
+        }
 
+
+        if (modalLocation) {
+            modalLocation.textContent =
+                card.dataset.location || "";
+        }
+
+
+        if (modalTitle) {
             modalTitle.textContent =
-                card.dataset.name;
+                card.dataset.name || "";
+        }
 
+
+        if (modalPeriod) {
             modalPeriod.textContent =
-                card.dataset.period;
+                card.dataset.period || "";
+        }
 
-            modalPeriodTwo.textContent =
-                card.dataset.period;
 
-            modalPlace.textContent =
-                card.dataset.place;
+        if (modalStyle) {
+            modalStyle.textContent =
+                card.dataset.style || "";
+        }
 
+
+        if (modalDescription) {
             modalDescription.textContent =
-                card.querySelector(".card-content p").textContent;
+                card.dataset.description || "";
+        }
+
+
+        if (modal) {
 
             modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
 
             document.body.style.overflow = "hidden";
-        });
 
-    });
+        }
+
+    }
 
 
     function closeModal() {
 
+        if (!modal) return;
+
         modal.classList.remove("active");
+
+        modal.setAttribute("aria-hidden", "true");
 
         document.body.style.overflow = "";
 
     }
 
 
-    modalClose.addEventListener("click", closeModal);
+    cards.forEach(card => {
+
+        const button =
+            card.querySelector(".card-button");
 
 
-    modal.addEventListener("click", event => {
+        card.addEventListener("click", () => {
 
-        if (event.target === modal) {
-            closeModal();
+            openModal(card);
+
+        });
+
+
+        if (button) {
+
+            button.addEventListener("click", event => {
+
+                event.stopPropagation();
+
+                openModal(card);
+
+            });
+
         }
 
     });
+
+
+    if (modalClose) {
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
+
+
+    if (modal) {
+
+        modal.addEventListener("click", event => {
+
+            if (event.target === modal) {
+                closeModal();
+            }
+
+        });
+
+    }
 
 
     document.addEventListener("keydown", event => {
@@ -187,7 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* 3D CARD MOVEMENT */
+    /* =====================================================
+       3D CARD MOVEMENT
+    ===================================================== */
 
     cards.forEach(card => {
 
@@ -195,7 +320,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (window.innerWidth <= 800) return;
 
-            const rect = card.getBoundingClientRect();
+            const rect =
+                card.getBoundingClientRect();
 
             const x =
                 event.clientX - rect.left;
@@ -204,16 +330,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.clientY - rect.top;
 
             const rotateY =
-                ((x / rect.width) - .5) * 5;
+                ((x / rect.width) - 0.5) * 8;
 
             const rotateX =
-                ((y / rect.height) - .5) * -5;
+                ((y / rect.height) - 0.5) * -8;
 
             card.style.transform =
-                `perspective(1000px)
+                `perspective(1200px)
                  rotateX(${rotateX}deg)
                  rotateY(${rotateY}deg)
-                 translateY(-8px)`;
+                 translateY(-10px)`;
+
         });
 
 
@@ -226,25 +353,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* SCROLL NAV */
+    /* =====================================================
+       NAVIGATION SCROLL EFFECT
+    ===================================================== */
+
+    const siteNav =
+        document.querySelector(".site-nav");
+
 
     window.addEventListener("scroll", () => {
 
-        document.querySelector(".site-nav")
-            .classList.toggle(
-                "scrolled",
-                window.scrollY > 40
-            );
+        if (!siteNav) return;
+
+        siteNav.classList.toggle(
+            "scrolled",
+            window.scrollY > 40
+        );
 
     });
 
 
-    /* REVEAL */
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
 
     const revealElements =
-        document.querySelectorAll(
-            ".intro, .section-heading, .architecture-card, .feature"
-        );
+        document.querySelectorAll(".reveal");
+
 
     const observer =
         new IntersectionObserver(
@@ -254,31 +389,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (entry.isIntersecting) {
 
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform =
-                            "translateY(0)";
+                        entry.target.classList.add(
+                            "revealed"
+                        );
 
-                        observer.unobserve(entry.target);
+                        observer.unobserve(
+                            entry.target
+                        );
+
                     }
 
                 });
 
             },
             {
-                threshold: .12
+                threshold: 0.12
             }
         );
 
 
     revealElements.forEach(element => {
 
-        element.style.opacity = "0";
-        element.style.transform = "translateY(35px)";
-        element.style.transition =
-            "opacity .8s ease, transform .8s ease";
-
         observer.observe(element);
 
     });
+
+
+    /* =====================================================
+       PARALLAX HERO
+    ===================================================== */
+
+    const hero =
+        document.querySelector(".architecture-hero");
+
+    const heroBackground =
+        document.querySelector(".hero-background");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (!hero || !heroBackground) return;
+
+        const scroll =
+            window.scrollY;
+
+        if (scroll < window.innerHeight) {
+
+            heroBackground.style.transform =
+                `translateY(${scroll * 0.18}px) scale(1.08)`;
+
+        }
+
+    });
+
+
+    /* =====================================================
+       INITIAL FILTER
+    ===================================================== */
+
+    filterCards();
 
 });
