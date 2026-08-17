@@ -2932,3 +2932,143 @@ body.intro-active {
         letter-spacing: 4px;
     }
 }
+
+
+
+#indiaJourney {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #010203;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#indiaJourney.done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#indiaJourneyCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.journey-ui {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    text-align: center;
+}
+
+.journey-label {
+    color: rgba(255,255,255,.55);
+    font-size: 9px;
+    letter-spacing: 6px;
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+
+.journey-title {
+    margin-top: 20px;
+    color: #fff;
+    font-family: "Cinzel", serif;
+    font-size: clamp(60px, 12vw, 150px);
+    font-weight: 700;
+    letter-spacing: 5px;
+    line-height: .85;
+    opacity: 0;
+    transform: scale(.7);
+    transition:
+        opacity .8s ease,
+        transform 1.2s cubic-bezier(.16,1,.3,1);
+    text-shadow:
+        0 0 30px rgba(255,153,51,.25),
+        0 0 100px rgba(255,153,51,.15);
+}
+
+.journey-subtitle {
+    margin-top: 25px;
+    color: #ff9933;
+    font-size: 8px;
+    letter-spacing: 5px;
+    opacity: 0;
+    transition: opacity .8s ease;
+}
+
+.journey-ui.show .journey-label,
+.journey-ui.show .journey-subtitle {
+    opacity: 1;
+}
+
+.journey-ui.show .journey-title {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#journeySkip {
+    position: absolute;
+    right: 32px;
+    bottom: 28px;
+    z-index: 20;
+
+    padding: 12px 18px;
+
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(0,0,0,.35);
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: .3s ease;
+}
+
+#journeySkip:hover {
+    color: #000;
+    background: #ff9933;
+    border-color: #ff9933;
+}
+
+body.journey-active {
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+
+    .journey-title {
+        font-size: 70px;
+    }
+
+    .journey-label {
+        font-size: 7px;
+        letter-spacing: 4px;
+    }
+
+    .journey-subtitle {
+        font-size: 7px;
+        letter-spacing: 3px;
+    }
+
+    #journeySkip {
+        right: 18px;
+        bottom: 18px;
+    }
+}
