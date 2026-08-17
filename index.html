@@ -25,23 +25,45 @@
      LOADER
 ===================================================== -->
 
-<div id="indiaJourney">
+<!-- =====================================================
+     CINEMATIC INDIA INTRO
+===================================================== -->
+<div id="pageLoader" class="india-intro" aria-label="Indian Glory introduction">
 
-    <canvas id="indiaJourneyCanvas"></canvas>
+    <div class="intro-stars"></div>
+    <div class="intro-nebula intro-nebula-one"></div>
+    <div class="intro-nebula intro-nebula-two"></div>
 
-    <div class="journey-ui">
-        <div class="journey-label">THE STORY BEGINS</div>
-        <div class="journey-title" id="journeyTitle">EARTH</div>
-        <div class="journey-subtitle" id="journeySubtitle">
-            ONE WORLD
+    <div class="intro-globe-wrap">
+        <div class="intro-globe">
+            <div class="globe-highlight"></div>
+            <div class="india-target" aria-hidden="true">
+                <div class="india-shape"></div>
+                <span>INDIA</span>
+            </div>
         </div>
     </div>
 
-    <button id="journeySkip">SKIP INTRO →</button>
+    <div class="intro-copy">
+        <div class="intro-eyebrow"><span></span> THE WORLD · BHARAT <span></span></div>
+        <h2>THE JOURNEY<br><strong>BEGINS HERE.</strong></h2>
+        <p>From the world to the heart of India.</p>
+    </div>
 
+    <div class="intro-coordinates">
+        <span>20.5937° N</span>
+        <i></i>
+        <span>78.9629° E</span>
+    </div>
+
+    <button class="intro-skip" id="skipIntro" type="button">
+        SKIP INTRO <span>→</span>
+    </button>
+
+    <div class="intro-progress"><span></span></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
 <!-- =====================================================
      NAVIGATION
 ===================================================== -->
@@ -1381,34 +1403,4 @@
 <script src="script.js"></script>
 
 </body>
-    ```html
-<div id="indiaIntro">
-    <div class="intro-stars"></div>
-
-    <div class="intro-world">
-        <div class="world-glow"></div>
-        <div class="world-sphere">
-            <div class="world-land land-1"></div>
-            <div class="world-land land-2"></div>
-            <div class="world-land land-3"></div>
-            <div class="world-land land-4"></div>
-            <div class="world-land land-india"></div>
-        </div>
-    </div>
-
-    <div class="india-zoom">
-        <div class="india-glow"></div>
-        <div class="india-shape"></div>
-    </div>
-
-    <div class="intro-text">
-        <span>THE STORY OF</span>
-        <strong>INDIA</strong>
-        <small>INDIAN GLORY</small>
-    </div>
-
-    <div class="intro-skip">ENTER INDIA <span>→</span></div>
-</div>
-```
-
 </html>
