@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    INDIAN GLORY — MASTER STYLE
    Modern • Cinematic • Heritage • 3D
@@ -2311,28 +2312,46 @@ section {
 
 /* =========================================================
    CINEMATIC WORLD → INDIA INTRO
-   No external JavaScript libraries required.
+   FULL-SCREEN 3D EARTH ZOOM
 ========================================================= */
 
 body.intro-active {
     overflow: hidden;
 }
 
+/* Full-screen cinematic layer */
 .india-intro {
     position: fixed;
     inset: 0;
     z-index: 999999;
+
     display: grid;
     place-items: center;
+
     overflow: hidden;
     isolation: isolate;
+
     background:
-        radial-gradient(circle at 50% 48%, rgba(255,138,31,.10), transparent 22%),
-        radial-gradient(circle at 50% 50%, #11100d 0%, #050505 54%, #020202 100%);
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(255,138,31,.10),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            #11100d 0%,
+            #050505 54%,
+            #020202 100%
+        );
+
     color: #fff;
+
     opacity: 1;
     visibility: visible;
-    transition: opacity 1.1s cubic-bezier(.77,0,.18,1), visibility 1.1s;
+
+    transition:
+        opacity 1.1s cubic-bezier(.77,0,.18,1),
+        visibility 1.1s;
 }
 
 .india-intro.intro-complete {
@@ -2341,374 +2360,968 @@ body.intro-active {
     pointer-events: none;
 }
 
+/* =========================================================
+   STARS
+========================================================= */
+
 .intro-stars,
 .intro-stars::before,
 .intro-stars::after {
     position: absolute;
+
     inset: 0;
+
     content: "";
+
     pointer-events: none;
 }
 
 .intro-stars {
     opacity: .7;
+
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 76% 17%, rgba(255,255,255,.55) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 42% 73%, rgba(255,255,255,.65) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 88% 68%, rgba(255,255,255,.45) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 23% 84%, rgba(255,255,255,.5) 0 1px, transparent 1.5px);
-    background-size: 260px 220px, 340px 290px, 310px 260px, 390px 330px, 280px 240px;
-    animation: introStarsDrift 18s linear infinite;
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,255,255,.8) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 76% 17%,
+            rgba(255,255,255,.55) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 42% 73%,
+            rgba(255,255,255,.65) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 88% 68%,
+            rgba(255,255,255,.45) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 23% 84%,
+            rgba(255,255,255,.5) 0 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        260px 220px,
+        340px 290px,
+        310px 260px,
+        390px 330px,
+        280px 240px;
+
+    animation:
+        introStarsDrift 18s linear infinite;
 }
 
 .intro-stars::before {
     opacity: .45;
+
     background-image:
-        radial-gradient(circle, rgba(255,138,31,.8) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(22,132,90,.8) 0 1px, transparent 1.5px);
-    background-size: 420px 370px, 510px 430px;
-    animation: introStarsDrift 28s linear infinite reverse;
+        radial-gradient(
+            circle,
+            rgba(255,138,31,.8) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(22,132,90,.8) 0 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        420px 370px,
+        510px 430px;
+
+    animation:
+        introStarsDrift 28s linear infinite reverse;
 }
 
 @keyframes introStarsDrift {
-    from { transform: translate3d(0,0,0) scale(1); }
-    to { transform: translate3d(-25px,20px,0) scale(1.05); }
+    from {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-25px,20px,0)
+            scale(1.05);
+    }
 }
+
+/* =========================================================
+   NEBULA
+========================================================= */
 
 .intro-nebula {
     position: absolute;
+
     width: 55vw;
     height: 55vw;
+
     max-width: 800px;
     max-height: 800px;
+
     border-radius: 50%;
+
     filter: blur(70px);
+
     opacity: .12;
+
     pointer-events: none;
 }
 
 .intro-nebula-one {
     background: #ff8a1f;
+
     left: -18vw;
     top: 20%;
-    animation: nebulaFloat 8s ease-in-out infinite alternate;
+
+    animation:
+        nebulaFloat 8s ease-in-out infinite alternate;
 }
 
 .intro-nebula-two {
     background: #16845a;
+
     right: -18vw;
     bottom: 12%;
-    animation: nebulaFloat 10s ease-in-out infinite alternate-reverse;
+
+    animation:
+        nebulaFloat 10s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes nebulaFloat {
-    to { transform: translate3d(40px,-30px,0) scale(1.08); }
+    to {
+        transform:
+            translate3d(40px,-30px,0)
+            scale(1.08);
+    }
 }
+
+/* =========================================================
+   FULL SCREEN GLOBE WRAPPER
+========================================================= */
+
 .intro-globe-wrap {
     position: absolute;
+
     left: 50%;
     top: 50%;
+
+    /*
+       The wrapper now covers the entire viewport.
+       This prevents the globe from being restricted
+       to the old 430px circular area.
+    */
     width: 100vw;
     height: 100vh;
+
     transform: translate(-50%,-50%);
+
     perspective: 1400px;
+
     z-index: 2;
-}
 
- .intro-globe {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
-    overflow: hidden;
-    transform: scale(.85);
-    transform-origin: center;
-    background: #05080a;
+    display: grid;
+    place-items: center;
 
-.intro-globe::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 35% 28%, rgba(255,255,255,.20), transparent 7%),
-        url("https://commons.wikimedia.org/wiki/Special:FilePath/Earth%20Eastern%20Hemisphere%202002.png") center / cover no-repeat;
-    transform: scale(1);
-    transform-origin: 56% 43%;
-    animation: globeTextureZoom 5.6s cubic-bezier(.76,0,.16,1) forwards;
-    z-index: 1;
-}
+    overflow: visible;
 
-.intro-globe::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.28);
-    box-shadow:
-        0 0 45px rgba(255,138,31,.16),
-        inset -35px -35px 80px rgba(0,0,0,.55);
-    z-index: 8;
     pointer-events: none;
 }
 
+/* =========================================================
+   3D EARTH
+========================================================= */
+
+.intro-globe {
+    position: relative;
+
+    /*
+       Keep the globe perfectly circular.
+       The diameter is based on the smaller
+       viewport dimension.
+    */
+    width: min(100vw,100vh);
+    height: min(100vw,100vh);
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    transform: scale(.55);
+
+    transform-origin: center;
+
+    background: #05080a;
+
+    box-shadow:
+        inset -35px -35px 80px rgba(0,0,0,.78),
+        inset 20px 10px 55px rgba(255,255,255,.12),
+        0 0 35px rgba(255,255,255,.08),
+        0 0 120px rgba(255,138,31,.13);
+
+    filter:
+        saturate(.82)
+        contrast(1.08);
+
+    animation:
+        globeApproach
+        5.6s
+        cubic-bezier(.76,0,.16,1)
+        forwards;
+
+    will-change:
+        transform,
+        filter;
+}
+
+/* =========================================================
+   EARTH TEXTURE
+========================================================= */
+
+.intro-globe::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 28%,
+            rgba(255,255,255,.20),
+            transparent 7%
+        ),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Earth%20Eastern%20Hemisphere%202002.png")
+        center / cover no-repeat;
+
+    transform:
+        scale(1);
+
+    transform-origin:
+        56% 43%;
+
+    animation:
+        globeTextureZoom
+        5.6s
+        cubic-bezier(.76,0,.16,1)
+        forwards;
+
+    z-index: 1;
+
+    will-change:
+        transform,
+        background-position;
+}
+
+/* =========================================================
+   EARTH ATMOSPHERE
+========================================================= */
+
+.intro-globe::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.28);
+
+    box-shadow:
+        0 0 45px rgba(255,138,31,.16),
+        inset -35px -35px 80px rgba(0,0,0,.55);
+
+    z-index: 8;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   GLOBE ZOOM
+   IMPORTANT:
+   The final scale is deliberately much larger
+   than the viewport so the Earth crosses beyond
+   every edge of the screen.
+========================================================= */
+
 @keyframes globeApproach {
+
     0% {
         transform: scale(.55);
-        filter: saturate(.65) brightness(.58) contrast(1.05);
+
+        filter:
+            saturate(.65)
+            brightness(.58)
+            contrast(1.05);
     }
+
     24% {
         transform: scale(.72);
-        filter: saturate(.82) brightness(.78) contrast(1.08);
+
+        filter:
+            saturate(.82)
+            brightness(.78)
+            contrast(1.08);
     }
-    52% {
-        transform: scale(1.02);
-        filter: saturate(.95) brightness(.95) contrast(1.08);
+
+    48% {
+        transform: scale(1.00);
+
+        filter:
+            saturate(.95)
+            brightness(.95)
+            contrast(1.08);
     }
-    78% {
-        transform: scale(1.18);
-        filter: saturate(1.05) brightness(1.02) contrast(1.1);
+
+    68% {
+        transform: scale(1.45);
+
+        filter:
+            saturate(1.02)
+            brightness(1)
+            contrast(1.10);
     }
+
+    84% {
+        transform: scale(2.55);
+
+        filter:
+            saturate(1.07)
+            brightness(1.04)
+            contrast(1.11);
+    }
+
     100% {
-        transform: scale(1.32);
-        filter: saturate(1.1) brightness(1.06) contrast(1.12);
+        /*
+           Large enough to completely cover
+           the entire viewport.
+        */
+        transform: scale(5.2);
+
+        filter:
+            saturate(1.1)
+            brightness(1.06)
+            contrast(1.12);
     }
 }
 
+/* =========================================================
+   EARTH TEXTURE ZOOM
+   This makes the camera feel like it is actually
+   entering the Earth rather than simply enlarging
+   a circle.
+========================================================= */
+
 @keyframes globeTextureZoom {
+
     0% {
-        transform: scale(1) translate3d(0,0,0);
-        background-position: center center;
+        transform:
+            scale(1)
+            translate3d(0,0,0);
+
+        background-position:
+            center center;
     }
-    30% {
-        transform: scale(1.05) translate3d(-1%,0,0);
-        background-position: 53% 44%;
+
+    20% {
+        transform:
+            scale(1.05)
+            translate3d(-1%,0,0);
+
+        background-position:
+            53% 44%;
     }
+
+    40% {
+        transform:
+            scale(1.25)
+            translate3d(-2%,-1%,0);
+
+        background-position:
+            55% 43%;
+    }
+
     55% {
-        transform: scale(1.5) translate3d(-4%,-2%,0);
-        background-position: 56% 43%;
+        transform:
+            scale(1.8)
+            translate3d(-4%,-2%,0);
+
+        background-position:
+            56% 43%;
     }
-    78% {
-        transform: scale(3.4) translate3d(-7%,-4%,0);
-        background-position: 58% 42%;
+
+    70% {
+        transform:
+            scale(3.2)
+            translate3d(-6%,-3%,0);
+
+        background-position:
+            58% 42%;
     }
+
+    84% {
+        transform:
+            scale(7)
+            translate3d(-8%,-5%,0);
+
+        background-position:
+            59% 42%;
+    }
+
     100% {
-        transform: scale(8.5) translate3d(-8%,-5%,0);
-        background-position: 59% 42%;
+        /*
+           Huge texture zoom gives the feeling
+           that the camera enters the planet.
+        */
+        transform:
+            scale(18)
+            translate3d(-8%,-5%,0);
+
+        background-position:
+            59% 42%;
     }
 }
+
+/* =========================================================
+   INDIA HIGHLIGHT
+========================================================= */
 
 .globe-highlight {
     position: absolute;
+
     width: 26%;
+
     aspect-ratio: 1;
+
     left: 55%;
     top: 39%;
+
     border-radius: 50%;
-    background: rgba(255,138,31,.35);
-    box-shadow: 0 0 22px 8px rgba(255,138,31,.22);
+
+    background:
+        rgba(255,138,31,.35);
+
+    box-shadow:
+        0 0 22px 8px rgba(255,138,31,.22);
+
     filter: blur(2px);
+
     opacity: 0;
-    animation: indiaGlow 5.6s cubic-bezier(.76,0,.16,1) forwards;
+
+    animation:
+        indiaGlow
+        5.6s
+        cubic-bezier(.76,0,.16,1)
+        forwards;
+
     z-index: 3;
+
+    pointer-events: none;
 }
 
 @keyframes indiaGlow {
-    0%, 38% { opacity: 0; transform: scale(.5); }
-    52% { opacity: .65; transform: scale(1); }
-    72% { opacity: .95; transform: scale(1.35); }
-    100% { opacity: 0; transform: scale(1.8); }
+
+    0%,
+    38% {
+        opacity: 0;
+
+        transform:
+            scale(.5);
+    }
+
+    52% {
+        opacity: .65;
+
+        transform:
+            scale(1);
+    }
+
+    72% {
+        opacity: .95;
+
+        transform:
+            scale(1.35);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(2.5);
+    }
 }
+
+/* =========================================================
+   INDIA TARGET
+========================================================= */
 
 .india-target {
     position: absolute;
+
     left: 56%;
     top: 39%;
+
     width: 18%;
+
     min-width: 54px;
+
     aspect-ratio: .78;
+
     z-index: 6;
-    transform: translate(-50%,-50%) scale(.25);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.25);
+
     opacity: 0;
-    animation: indiaTarget 5.6s cubic-bezier(.76,0,.16,1) forwards;
+
+    animation:
+        indiaTarget
+        5.6s
+        cubic-bezier(.76,0,.16,1)
+        forwards;
+
+    pointer-events: none;
 }
 
 @keyframes indiaTarget {
-    0%, 34% { opacity: 0; transform: translate(-50%,-50%) scale(.2); }
-    48% { opacity: 1; transform: translate(-50%,-50%) scale(.55); }
-    66% { opacity: 1; transform: translate(-50%,-50%) scale(1.05); }
-    82% { opacity: 1; transform: translate(-50%,-50%) scale(2.4); }
-    100% { opacity: 0; transform: translate(-50%,-50%) scale(6); }
+
+    0%,
+    34% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+    }
+
+    48% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.55);
+    }
+
+    66% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.05);
+    }
+
+    82% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(2.4);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(7);
+    }
 }
 
-/* Stylised India silhouette — intentionally abstract for the cinematic target. */
+/* =========================================================
+   STYLISED INDIA SILHOUETTE
+========================================================= */
+
 .india-shape {
     position: absolute;
+
     inset: 0;
+
     clip-path: polygon(
-        45% 0%, 63% 7%, 67% 17%, 78% 23%, 71% 33%,
-        82% 43%, 70% 49%, 68% 58%, 61% 65%, 55% 76%,
-        51% 91%, 45% 100%, 38% 88%, 30% 78%, 27% 65%,
-        18% 57%, 24% 47%, 16% 39%, 25% 31%, 23% 20%,
-        34% 15%, 35% 6%
+        45% 0%,
+        63% 7%,
+        67% 17%,
+        78% 23%,
+        71% 33%,
+        82% 43%,
+        70% 49%,
+        68% 58%,
+        61% 65%,
+        55% 76%,
+        51% 91%,
+        45% 100%,
+        38% 88%,
+        30% 78%,
+        27% 65%,
+        18% 57%,
+        24% 47%,
+        16% 39%,
+        25% 31%,
+        23% 20%,
+        34% 15%,
+        35% 6%
     );
-    background: linear-gradient(155deg, #fff7e8 0 30%, #ff8a1f 31% 55%, #16845a 56% 100%);
-    box-shadow: 0 0 30px rgba(255,138,31,.55);
+
+    background:
+        linear-gradient(
+            155deg,
+            #fff7e8 0 30%,
+            #ff8a1f 31% 55%,
+            #16845a 56% 100%
+        );
+
+    box-shadow:
+        0 0 30px rgba(255,138,31,.55);
 }
 
 .india-target span {
     position: absolute;
+
     left: 50%;
     bottom: -28px;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     font-size: 7px;
+
     letter-spacing: 4px;
+
     color: #fff;
+
     white-space: nowrap;
-    text-shadow: 0 0 12px #000;
+
+    text-shadow:
+        0 0 12px #000;
 }
+
+/* =========================================================
+   INTRO TEXT
+========================================================= */
 
 .intro-copy {
     position: absolute;
+
     z-index: 10;
+
     left: 50%;
     top: 50%;
-    width: min(900px, 90vw);
+
+    width: min(900px,90vw);
+
     text-align: center;
-    transform: translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     pointer-events: none;
-    animation: introCopy 5.6s cubic-bezier(.76,0,.16,1) forwards;
+
+    animation:
+        introCopy
+        5.6s
+        cubic-bezier(.76,0,.16,1)
+        forwards;
 }
 
 @keyframes introCopy {
-    0% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-    45% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-    67% { opacity: .9; transform: translate(-50%,-50%) scale(.92); }
-    78%,100% { opacity: 0; transform: translate(-50%,-50%) scale(.72); }
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    45% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    67% {
+        opacity: .9;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.92);
+    }
+
+    78%,
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.72);
+    }
 }
 
 .intro-eyebrow {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 14px;
+
     margin-bottom: 24px;
+
     color: var(--gold-light);
+
     font-size: 9px;
+
     letter-spacing: 5px;
 }
 
 .intro-eyebrow span {
     width: 42px;
     height: 1px;
+
     background: var(--gold);
 }
 
 .intro-copy h2 {
     font-family: "Cinzel", serif;
-    font-size: clamp(42px, 7vw, 92px);
+
+    font-size:
+        clamp(42px, 7vw, 92px);
+
     line-height: .9;
+
     letter-spacing: -3px;
-    text-shadow: 0 18px 60px rgba(0,0,0,.65);
+
+    text-shadow:
+        0 18px 60px rgba(0,0,0,.65);
 }
 
 .intro-copy h2 strong {
     color: var(--saffron);
+
     font-weight: 700;
 }
 
 .intro-copy p {
     margin-top: 30px;
-    color: rgba(255,255,255,.55);
+
+    color:
+        rgba(255,255,255,.55);
+
     font-size: 12px;
+
     letter-spacing: 2px;
 }
 
+/* =========================================================
+   INTRO COORDINATES
+========================================================= */
+
 .intro-coordinates {
     position: absolute;
+
     left: 50%;
     bottom: 7vh;
+
     z-index: 12;
+
     display: flex;
+
     align-items: center;
+
     gap: 13px;
-    transform: translateX(-50%);
-    color: rgba(255,255,255,.42);
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,.42);
+
     font-size: 8px;
+
     letter-spacing: 3px;
-    animation: introUiFade 5.6s ease forwards;
+
+    animation:
+        introUiFade
+        5.6s
+        ease
+        forwards;
 }
 
 .intro-coordinates i {
     width: 34px;
     height: 1px;
-    background: linear-gradient(90deg, var(--saffron), var(--green));
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--saffron),
+            var(--green)
+        );
 }
+
+/* =========================================================
+   SKIP BUTTON
+========================================================= */
 
 .intro-skip {
     position: absolute;
+
     right: 32px;
     bottom: 28px;
+
     z-index: 20;
+
     padding: 12px 16px;
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(0,0,0,.35);
-    color: rgba(255,255,255,.72);
-    font: 600 8px/1 "Inter", sans-serif;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(0,0,0,.35);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font:
+        600 8px/1
+        "Inter",
+        sans-serif;
+
     letter-spacing: 2px;
+
     cursor: pointer;
+
     backdrop-filter: blur(12px);
-    transition: .25s ease;
-    animation: introUiFade 5.6s ease forwards;
+
+    transition:
+        .25s ease;
+
+    animation:
+        introUiFade
+        5.6s
+        ease
+        forwards;
 }
 
 .intro-skip span {
     margin-left: 10px;
-    color: var(--saffron);
+
+    color:
+        var(--saffron);
+
     font-size: 13px;
 }
 
 .intro-skip:hover {
     color: #fff;
-    border-color: var(--saffron);
-    background: rgba(255,138,31,.12);
-    transform: translateY(-2px);
+
+    border-color:
+        var(--saffron);
+
+    background:
+        rgba(255,138,31,.12);
+
+    transform:
+        translateY(-2px);
 }
 
 @keyframes introUiFade {
-    0%, 60% { opacity: 1; }
-    78%, 100% { opacity: 0; }
+
+    0%,
+    60% {
+        opacity: 1;
+    }
+
+    78%,
+    100% {
+        opacity: 0;
+    }
 }
+
+/* =========================================================
+   INTRO PROGRESS
+========================================================= */
 
 .intro-progress {
     position: absolute;
+
     left: 50%;
     bottom: 28px;
-    width: min(240px, 35vw);
+
+    width:
+        min(240px,35vw);
+
     height: 1px;
-    transform: translateX(-50%);
-    background: rgba(255,255,255,.10);
+
+    transform:
+        translateX(-50%);
+
+    background:
+        rgba(255,255,255,.10);
+
     overflow: hidden;
+
     z-index: 12;
 }
 
 .intro-progress span {
     display: block;
+
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, var(--saffron), #fff, var(--green));
-    animation: introProgress 5.5s linear forwards;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--saffron),
+            #fff,
+            var(--green)
+        );
+
+    animation:
+        introProgress
+        5.5s
+        linear
+        forwards;
 }
 
 @keyframes introProgress {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
+/* =========================================================
+   MOBILE CINEMATIC INTRO
+========================================================= */
+
 @media (max-width: 700px) {
+
     .intro-globe-wrap {
-        width: 72vw;
-        height: 72vw;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .intro-globe {
+        /*
+           Keep a circular Earth on mobile.
+        */
+        width: min(100vw,100vh);
+        height: min(100vw,100vh);
     }
 
     .intro-copy h2 {
@@ -2717,6 +3330,7 @@ body.intro-active {
 
     .intro-eyebrow {
         font-size: 7px;
+
         letter-spacing: 3px;
     }
 
@@ -2731,13 +3345,29 @@ body.intro-active {
 
     .intro-progress {
         bottom: 18px;
+
         left: 18px;
+
         transform: none;
+
         width: 120px;
+    }
+
+    .intro-coordinates {
+        bottom: 8vh;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
     }
 }
 
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+
     .india-intro .intro-globe,
     .india-intro .intro-copy,
     .india-intro .india-target,
@@ -2745,274 +3375,8 @@ body.intro-active {
     .india-intro .intro-progress span,
     .india-intro .intro-coordinates,
     .india-intro .intro-skip {
+
         animation: none !important;
     }
 }
-
-
-/* =========================================================
-ARCHITECTURE INFORMATION MODAL
-========================================================= */
-
-.architecture-modal {
-position: fixed;
-inset: 0;
-z-index: 6000;
-
 ```
-display: grid;
-place-items: center;
-
-padding: 30px;
-
-background: rgba(0, 0, 0, 0.84);
-
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
-
-opacity: 0;
-visibility: hidden;
-pointer-events: none;
-
-transition:
-    opacity 0.4s ease,
-    visibility 0.4s ease;
-```
-
-}
-
-.architecture-modal.active {
-opacity: 1;
-visibility: visible;
-pointer-events: auto;
-}
-
-.architecture-modal-inner {
-position: relative;
-
-```
-width: min(1050px, 94vw);
-max-height: 88vh;
-
-display: grid;
-grid-template-columns: 1fr 1fr;
-
-overflow: hidden;
-
-background: #11110f;
-
-border: 1px solid rgba(255,255,255,0.12);
-
-box-shadow:
-    0 40px 120px rgba(0,0,0,0.75);
-
-transform: scale(0.88) translateY(30px);
-
-transition:
-    transform 0.5s cubic-bezier(.2,.7,.2,1);
-```
-
-}
-
-.architecture-modal.active
-.architecture-modal-inner {
-transform: scale(1) translateY(0);
-}
-
-.architecture-modal-image {
-min-height: 580px;
-
-```
-overflow: hidden;
-
-background: #080807;
-```
-
-}
-
-.architecture-modal-image img {
-width: 100%;
-height: 100%;
-
-```
-object-fit: cover;
-
-transition: transform 1s ease;
-```
-
-}
-
-.architecture-modal.active
-.architecture-modal-image img {
-transform: scale(1.03);
-}
-
-.architecture-modal-content {
-position: relative;
-
-```
-display: flex;
-flex-direction: column;
-justify-content: center;
-
-padding: 70px;
-
-background:
-    radial-gradient(
-        circle at 20% 20%,
-        rgba(255,138,31,0.08),
-        transparent 35%
-    ),
-    #11110f;
-```
-
-}
-
-.architecture-modal-date {
-color: var(--gold);
-
-```
-font-size: 10px;
-
-letter-spacing: 4px;
-```
-
-}
-
-.architecture-modal-content h2 {
-margin: 18px 0 28px;
-
-```
-font-family: "Cinzel", serif;
-
-font-size: clamp(38px, 5vw, 65px);
-
-line-height: 0.95;
-```
-
-}
-
-.architecture-modal-divider {
-width: 80px;
-height: 1px;
-
-```
-margin-bottom: 28px;
-
-background:
-    linear-gradient(
-        90deg,
-        var(--saffron),
-        var(--green)
-    );
-```
-
-}
-
-.architecture-modal-content p {
-color: #aaa69d;
-
-```
-font-size: 15px;
-
-line-height: 1.9;
-```
-
-}
-
-.architecture-modal-hint {
-margin-top: 40px;
-
-```
-color: #555;
-
-font-size: 8px;
-
-letter-spacing: 3px;
-```
-
-}
-
-.architecture-modal-close {
-position: absolute;
-
-```
-top: 18px;
-right: 18px;
-
-z-index: 10;
-
-width: 44px;
-height: 44px;
-
-border: 1px solid rgba(255,255,255,0.2);
-
-border-radius: 50%;
-
-background: rgba(0,0,0,0.65);
-
-color: white;
-
-font-size: 27px;
-
-cursor: pointer;
-
-transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
-```
-
-}
-
-.architecture-modal-close:hover {
-background: rgba(255,138,31,0.18);
-
-```
-border-color: var(--saffron);
-
-transform: rotate(90deg);
-```
-
-}
-
-/* =========================================================
-ARCHITECTURE MODAL — MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-
-```
-.architecture-modal {
-    padding: 18px;
-}
-
-.architecture-modal-inner {
-    grid-template-columns: 1fr;
-
-    max-height: 92vh;
-
-    overflow-y: auto;
-}
-
-.architecture-modal-image {
-    min-height: 280px;
-
-    height: 280px;
-}
-
-.architecture-modal-content {
-    padding: 38px 30px 45px;
-}
-
-.architecture-modal-content h2 {
-    font-size: 38px;
-}
-
-.architecture-modal-content p {
-    font-size: 14px;
-}
-```
-
-}
-
