@@ -1295,3 +1295,436 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
 
 });
+
+
+(function () {
+
+    const overlay = document.getElementById("indiaJourney");
+    const canvas = document.getElementById("indiaJourneyCanvas");
+    const skip = document.getElementById("journeySkip");
+    const ui = document.querySelector(".journey-ui");
+    const title = document.getElementById("journeyTitle");
+    const subtitle = document.getElementById("journeySubtitle");
+
+    if (!overlay || !canvas || typeof THREE === "undefined") {
+        return;
+    }
+
+    document.body.classList.add("journey-active");
+
+    const scene = new THREE.Scene();
+
+    scene.background = new THREE.Color(0x010203);
+
+    const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
+
+    camera.position.set(0, 0, 8);
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true
+    });
+
+    renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, 2)
+    );
+
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    const ambientLight = new THREE.AmbientLight(
+        0xffffff,
+        1.5
+    );
+
+    scene.add(ambientLight);
+
+    const sunLight = new THREE.DirectionalLight(
+        0xffffff,
+        3
+    );
+
+    sunLight.position.set(5, 3, 5);
+
+    scene.add(sunLight);
+
+    const earthGroup = new THREE.Group();
+
+    scene.add(earthGroup);
+
+    const loader = new THREE.TextureLoader();
+
+    const earthTexture = loader.load(
+        "https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg"
+    );
+
+    earthTexture.colorSpace = THREE.SRGBColorSpace;
+
+    const earthGeometry =
+        new THREE.SphereGeometry(
+            2,
+            96,
+            96
+        );
+
+    const earthMaterial =
+        new THREE.MeshPhongMaterial({
+            map: earthTexture,
+            shininess: 12
+        });
+
+    const earth =
+        new THREE.Mesh(
+            earthGeometry,
+            earthMaterial
+        );
+
+    earthGroup.add(earth);
+
+    const atmosphereGeometry =
+        new THREE.SphereGeometry(
+            2.08,
+            96,
+            96
+        );
+
+    const atmosphereMaterial =
+        new THREE.MeshBasicMaterial({
+            color: 0x3388ff,
+            transparent: true,
+            opacity: .09,
+            side: THREE.BackSide
+        });
+
+    const atmosphere =
+        new THREE.Mesh(
+            atmosphereGeometry,
+            atmosphereMaterial
+        );
+
+    earthGroup.add(atmosphere);
+
+    const starsGeometry =
+        new THREE.BufferGeometry();
+
+    const starPositions = [];
+
+    for (let i = 0; i < 1800; i++) {
+
+        const radius =
+            25 + Math.random() * 45;
+
+        const theta =
+            Math.random() * Math.PI * 2;
+
+        const phi =
+            Math.acos(
+                2 * Math.random() - 1
+            );
+
+        starPositions.push(
+            radius *
+            Math.sin(phi) *
+            Math.cos(theta)
+        );
+
+        starPositions.push(
+            radius *
+            Math.sin(phi) *
+            Math.sin(theta)
+        );
+
+        starPositions.push(
+            radius *
+            Math.cos(phi)
+        );
+    }
+
+    starsGeometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(
+            starPositions,
+            3
+        )
+    );
+
+    const starsMaterial =
+        new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: .06,
+            transparent: true,
+            opacity: .75
+        });
+
+    const stars =
+        new THREE.Points(
+            starsGeometry,
+            starsMaterial
+        );
+
+    scene.add(stars);
+
+    const indiaMarkerGroup =
+        new THREE.Group();
+
+    earthGroup.add(indiaMarkerGroup);
+
+    const indiaPoint =
+        new THREE.Vector3(
+            .55,
+            .45,
+            1.82
+        ).normalize().multiplyScalar(2.04);
+
+    const markerGeometry =
+        new THREE.SphereGeometry(
+            .045,
+            32,
+            32
+        );
+
+    const markerMaterial =
+        new THREE.MeshBasicMaterial({
+            color: 0xff9933
+        });
+
+    const indiaMarker =
+        new THREE.Mesh(
+            markerGeometry,
+            markerMaterial
+        );
+
+    indiaMarker.position.copy(
+        indiaPoint
+    );
+
+    indiaMarkerGroup.add(
+        indiaMarker
+    );
+
+    const ringGeometry =
+        new THREE.RingGeometry(
+            .08,
+            .12,
+            64
+        );
+
+    const ringMaterial =
+        new THREE.MeshBasicMaterial({
+            color: 0xff9933,
+            transparent: true,
+            opacity: .9,
+            side: THREE.DoubleSide
+        });
+
+    const indiaRing =
+        new THREE.Mesh(
+            ringGeometry,
+            ringMaterial
+        );
+
+    indiaRing.position.copy(
+        indiaPoint
+    );
+
+    indiaRing.lookAt(
+        new THREE.Vector3(0, 0, 0)
+    );
+
+    indiaMarkerGroup.add(
+        indiaRing
+    );
+
+    let start = performance.now();
+    let finished = false;
+    let skipped = false;
+
+    function finish() {
+
+        if (finished) return;
+
+        finished = true;
+
+        overlay.classList.add("done");
+
+        document.body.classList.remove(
+            "journey-active"
+        );
+
+        setTimeout(() => {
+
+            overlay.remove();
+
+        }, 1300);
+    }
+
+    skip.addEventListener(
+        "click",
+        finish
+    );
+
+    function resize() {
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+    }
+
+    window.addEventListener(
+        "resize",
+        resize
+    );
+
+    function animate(time) {
+
+        if (finished) return;
+
+        const elapsed =
+            time - start;
+
+        const seconds =
+            elapsed / 1000;
+
+        if (seconds < 1.5) {
+
+            title.textContent = "EARTH";
+            subtitle.textContent =
+                "ONE WORLD";
+
+            ui.classList.add("show");
+
+        }
+
+        if (seconds > 2.2) {
+
+            title.textContent = "ASIA";
+            subtitle.textContent =
+                "THE JOURNEY BEGINS";
+        }
+
+        if (seconds > 4.2) {
+
+            title.textContent = "INDIA";
+            subtitle.textContent =
+                "THE HEART OF THE STORY";
+        }
+
+        if (seconds > 5.2) {
+
+            ui.classList.remove("show");
+        }
+
+        if (seconds < 4) {
+
+            earthGroup.rotation.y =
+                seconds * .18;
+        }
+
+        if (seconds >= 4 &&
+            seconds < 6.8) {
+
+            const targetRotation =
+                -0.55;
+
+            earthGroup.rotation.y +=
+                (
+                    targetRotation -
+                    earthGroup.rotation.y
+                ) * .025;
+        }
+
+        if (seconds < 4) {
+
+            camera.position.z =
+                8 -
+                seconds * .7;
+        }
+
+        else if (seconds < 7.2) {
+
+            const p =
+                (seconds - 4) / 3.2;
+
+            const eased =
+                p * p * (3 - 2 * p);
+
+            camera.position.z =
+                5.2 -
+                eased * 3.9;
+
+            camera.position.x =
+                eased * .18;
+
+            camera.position.y =
+                eased * .12;
+        }
+
+        else {
+
+            camera.position.z =
+                1.25;
+
+            camera.position.x =
+                .22;
+
+            camera.position.y =
+                .14;
+        }
+
+        indiaMarker.scale.setScalar(
+            seconds > 4
+                ? 1 +
+                  Math.sin(time * .008) * .35
+                : 0.01
+        );
+
+        indiaRing.scale.setScalar(
+            seconds > 4
+                ? 1 +
+                  Math.sin(time * .006) * .5
+                : 0.01
+        );
+
+        stars.rotation.y =
+            time * .00001;
+
+        earth.rotation.y =
+            time * .000015;
+
+        renderer.render(
+            scene,
+            camera
+        );
+
+        if (seconds >= 8.2) {
+            finish();
+            return;
+        }
+
+        requestAnimationFrame(
+            animate
+        );
+    }
+
+    requestAnimationFrame(
+        animate
+    );
+
+})();
