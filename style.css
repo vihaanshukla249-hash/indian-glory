@@ -2405,16 +2405,18 @@ body.intro-active {
 @keyframes nebulaFloat {
     to { transform: translate3d(40px,-30px,0) scale(1.08); }
 }
-
 .intro-globe-wrap {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: min(430px, 58vw);
-    height: min(430px, 58vw);
-    transform: translate(-50%,-50%);
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
     perspective: 1400px;
     z-index: 2;
+    display: grid;
+    place-items: center;
+    overflow: visible;
 }
 
 .intro-globe {
