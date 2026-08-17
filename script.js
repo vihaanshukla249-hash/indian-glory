@@ -962,7 +962,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 ```
-
 /* =====================================================
    WORLD → INDIA INTRO
 ===================================================== */
@@ -970,27 +969,329 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
     const intro = document.getElementById("indiaIntro");
+    const canvas = document.getElementById("indiaIntroCanvas");
     const skip = document.getElementById("skipIntro");
+    const text = document.querySelector(".indiaIntro-text");
 
-    if (!intro) return;
+    if (!intro || !canvas) return;
 
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("intro-active");
 
-    function closeIntro() {
+    const ctx = canvas.getContext("2d");
 
-        if (!intro) return;
+    let width;
+    let height;
+    let startTime = performance.now();
+    let finished = false;
 
-        intro.classList.add("hide");
+    function resize() {
+        const ratio = window.devicePixelRatio || 1;
 
-        document.body.style.overflow = "";
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.width = width * ratio;
+        canvas.height = height * ratio;
+
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    resize();
+
+    window.addEventListener("resize", resize);
+
+    function drawStars() {
+
+        ctx.fillStyle = "#020304";
+        ctx.fillRect(0, 0, width, height);
+
+        const count = Math.min(180, Math.floor(width * height / 9000));
+
+        for (let i = 0; i < count; i++) {
+
+            const x = (i * 137.31) % width;
+            const y = (i * 71.93) % height;
+            const size = ((i * 17) % 10) / 10 + .3;
+
+            ctx.fillStyle = `rgba(255,255,255,${.15 + size * .25})`;
+
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function drawGlobe(progress) {
+
+        const cx = width / 2;
+        const cy = height / 2;
+
+        const baseSize = Math.min(width, height) * .22;
+
+        const zoom = Math.min(
+            1,
+            Math.max(0, (progress - .15) / .55)
+        );
+
+        const radius =
+            baseSize +
+            zoom * Math.min(width, height) * .33;
+
+        ctx.save();
+
+        ctx.translate(cx, cy);
+
+        /* globe glow */
+
+        const glow = ctx.createRadialGradient(
+            0,
+            0,
+            radius * .2,
+            0,
+            0,
+            radius * 1.4
+        );
+
+        glow.addColorStop(0, "rgba(40,130,255,.15)");
+        glow.addColorStop(.65, "rgba(20,70,150,.08)");
+        glow.addColorStop(1, "rgba(0,0,0,0)");
+
+        ctx.fillStyle = glow;
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        /* globe */
+
+        const globe = ctx.createRadialGradient(
+            -radius * .3,
+            -radius * .3,
+            radius * .1,
+            0,
+            0,
+            radius
+        );
+
+        globe.addColorStop(0, "#183b55");
+        globe.addColorStop(.55, "#092338");
+        globe.addColorStop(1, "#020910");
+
+        ctx.fillStyle = globe;
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        /* atmosphere */
+
+        ctx.strokeStyle = "rgba(120,190,255,.45)";
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, Math.PI * 2);
+        ctx.stroke();
+
+        /* latitude */
+
+        ctx.strokeStyle = "rgba(100,180,255,.16)";
+        ctx.lineWidth = 1;
+
+        for (let i = -2; i <= 2; i++) {
+
+            const y = i * radius * .3;
+
+            ctx.beginPath();
+
+            ctx.ellipse(
+                0,
+                y,
+                radius,
+                Math.sqrt(
+                    Math.max(
+                        1,
+                        radius * radius - y * y
+                    )
+                ) * .25,
+                0,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.stroke();
+        }
+
+        /* longitude */
+
+        for (let i = -2; i <= 2; i++) {
+
+            const x = i * radius * .3;
+
+            ctx.beginPath();
+
+            ctx.ellipse(
+                x,
+                0,
+                Math.sqrt(
+                    Math.max(
+                        1,
+                        radius * radius - x * x
+                    )
+                ) * .25,
+                radius,
+                0,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.stroke();
+        }
+
+        /*
+            simplified continental silhouettes
+            used only as visual motion texture
+        */
+
+        ctx.fillStyle = "rgba(90,150,100,.5)";
+
+        const continents = [
+            [-.48,-.25,.22,.13],
+            [-.28,-.48,.12,.18],
+            [.08,-.25,.25,.16],
+            [.32,-.05,.16,.22],
+            [.08,.28,.15,.18],
+            [-.18,.28,.10,.16]
+        ];
+
+        continents.forEach(c => {
+
+            ctx.beginPath();
+
+            ctx.ellipse(
+                c[0] * radius,
+                c[1] * radius,
+                c[2] * radius,
+                c[3] * radius,
+                .3,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+        });
+
+        /*
+            INDIA TARGET
+        */
+
+        const indiaScale =
+            Math.max(
+                0,
+                Math.min(
+                    1,
+                    (progress - .48) / .38
+                )
+            );
+
+        if (indiaScale > 0) {
+
+            const indiaX = radius * .08;
+            const indiaY = radius * .16;
+
+            ctx.save();
+
+            ctx.translate(indiaX, indiaY);
+            ctx.scale(
+                indiaScale,
+                indiaScale
+            );
+
+            ctx.fillStyle =
+                "rgba(255,153,51,.95)";
+
+            ctx.shadowColor =
+                "rgba(255,153,51,.9)";
+
+            ctx.shadowBlur =
+                30;
+
+            ctx.beginPath();
+
+            ctx.moveTo(0, -radius * .20);
+            ctx.lineTo(radius * .08, -radius * .08);
+            ctx.lineTo(radius * .15, .02 * radius);
+            ctx.lineTo(radius * .09, radius * .15);
+            ctx.lineTo(radius * .02, radius * .28);
+            ctx.lineTo(-radius * .03, radius * .18);
+            ctx.lineTo(-radius * .07, radius * .08);
+            ctx.lineTo(-radius * .04, -.02 * radius);
+            ctx.closePath();
+
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        ctx.restore();
+    }
+
+    function finishIntro() {
+
+        if (finished) return;
+
+        finished = true;
+
+        intro.classList.add("finished");
+
+        document.body.classList.remove("intro-active");
 
         setTimeout(() => {
             intro.remove();
-        }, 1300);
+        }, 1400);
     }
 
-    skip?.addEventListener("click", closeIntro);
+    function animate(now) {
 
-    setTimeout(closeIntro, 9000);
+        if (finished) return;
+
+        const elapsed =
+            now - startTime;
+
+        const duration = 8500;
+
+        const progress =
+            Math.min(
+                1,
+                elapsed / duration
+            );
+
+        drawStars();
+
+        drawGlobe(progress);
+
+        if (
+            progress > .62 &&
+            !text.classList.contains("show")
+        ) {
+            text.classList.add("show");
+        }
+
+        if (progress >= 1) {
+            finishIntro();
+            return;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    skip?.addEventListener(
+        "click",
+        finishIntro
+    );
+
+    requestAnimationFrame(animate);
 
 });
